@@ -104,13 +104,10 @@ CodeGraph, without adaptive controller & -0.143 & -0.014 & -0.044 & -0.029 & -0.
 \endgroup
 \end{landscape}
 
-% POST-REPAIR STATISTICS NOTE: Replace this factorial table with contrasts calculated from the completed repaired evaluation. On the current ten-case subset, CodeGraph with adaptive exploration changes P@1 by 0.000, R@5 by +0.054, and NDCG@5 by +0.023; without the controller it changes P@1 by -0.100, R@5 by +0.009, and NDCG@5 only negligibly. Use these only to guide the eventual interpretation and recalculate every row from the final artifacts.
-
 Adaptive exploration produces modest positive aggregate differences under both structural settings. With CodeGraph enabled, it increases R@5 from 0.465 to 0.508 and full implementation recall from 0.350 to 0.407. Without CodeGraph, the corresponding increases are smaller: R@5 rises from 0.479 to 0.505 and full recall from 0.364 to 0.379. The direction is consistent with the controller recovering some relevant evidence after round zero, but the scale is limited relative to its additional model use. It also does not transform the native sufficiency outcome discussed below.
 
 CodeGraph shows a different pattern. With the controller enabled, it changes R@5 by only +0.002 and full recall by +0.029, while P@1 falls by 0.164 and NDCG@5 by 0.062. Without adaptive exploration, enabling CodeGraph reduces all four reported quality measures. The early-rank difference therefore cannot be attributed only to graph-driven controller expansion: it remains when both conditions stop after round zero. At the same time, Full Workspace recovers all implementation Oracles slightly more often than the graphless condition, and individual positive cases are present. For pandas 10068, for example, Full Workspace achieves full recall in four of four repetitions, compared with one of four without CodeGraph. The results show that structural processing can recover useful evidence in individual cases, but can also introduce or prioritise additional structural candidates that reduce early file-ranking quality. Its contribution is therefore beneficial in some cases without producing a consistent aggregate improvement.
 
-% POST-REPAIR INTERPRETATION NOTE: Replace this interpretation after the repaired evaluation completes. The current rerun indicates that the earlier controller-enabled CodeGraph penalty was caused at least partly by defective source-range representation: Full Workspace tied graphless at P@1 and exceeded it at R@5 and NDCG@5. The new interpretation must still preserve the controller-disabled P@1 penalty and the pandas 10068 regression rather than claiming universal benefit.
 
 The interaction between the capabilities is small and measure-dependent. Adaptive exploration improves R@5 more with CodeGraph than without it, whereas it improves NDCG@5 more in the graphless pipeline. CodeGraph's slight full-recall benefit appears only when the controller is active. These descriptive differences suggest that the controller sometimes uses structural evidence productively, but they do not show a general dependency between the components.
 
@@ -118,7 +115,6 @@ The interaction between the capabilities is small and measure-dependent. Adaptiv
 
 File ranking describes whether known fixing files reach the returned evidence, but it does not establish whether the selected source explains the requested mechanism. The final selector labels 135 Full Workspace runs \texttt{partial}, four \texttt{missing}, and one \texttt{strong}; it marks only one of the 140 runs sufficient. It labels every run in each native ablation partial and insufficient, while Codex labels all 140 runs strong and sufficient. As Chapter 4 establishes, these are the systems' own judgements rather than independent completeness labels. The contrast therefore shows a substantial difference in output policy or confidence, but it cannot by itself establish that all Codex mechanisms are complete or that almost every native result is objectively incomplete.
 
-% POST-REPAIR STATISTICS NOTE: Replace these native coverage totals with the completed repaired-evaluation outputs. The current 160 accepted native runs are all `partial/false`, which indicates that better prioritisation has not yet produced mechanism completeness. Update the Codex comparison only if Codex is included in the final replacement evaluation.
 
 The Full Workspace controller usually exhausts its ordinary exploration allowance. It stops after the normal three-round budget in 113 runs and reaches the conditional round limit in another 16. Nine runs stop after a round produces no evidence gain, one stops when every required obligation is covered, and one stops when no executable action remains. Across 423 executed rounds, the trace records evidence and navigation gains in 347 rounds and coverage improvement in 137. Later exploration is therefore frequently productive at the candidate level, but new candidates translate into only modest aggregate recall gains and almost no sufficient outcomes.
 
@@ -166,7 +162,7 @@ Without either capability & 2.50 & 46,176 & 115.8 & 0.601 & 0.092 \\
 \endgroup
 \end{landscape}
 
-% POST-REPAIR STATISTICS NOTE: Replace these cost and stability values with measurements from the completed repaired evaluation. Do not infer them from the ranking figures supplied so far. Ensure that the replacement graphless runs contain valid timing records so the old timing caveat can be removed rather than carried into the final evaluation.
+
 
 Codex uses approximately three times the flow tokens of Full Workspace but completes sooner on average. Provider-reported tokens and elapsed time therefore describe different operational costs and should not be treated as interchangeable measures. Disabling adaptive exploration nearly halves Workspace token use and reduces mean runtime by about 100 seconds. Removing CodeGraph while retaining the controller reduces mean flow tokens by approximately 13,100, while removing it after controller removal saves only about 1,400. The controller, rather than CodeGraph, is therefore the dominant source of native retrieval-flow token cost.
 
@@ -176,11 +172,11 @@ Repeated-run agreement is moderate for every condition. Codex has the highest me
 
 \section{Representative Trace Cases}\label{sec:representative-trace-cases}
 
-% POST-REPAIR TRACE NOTE: Chapter 6 now contains the Vue 10519 diagnosis and the resulting owner-validation rationale. Add only the case's measured outcome here after the replacement evaluation is complete; do not repeat the repair mechanism in Chapter 7.
+
 
 Pandas 10068 illustrates a positive structural and controller interaction. Full Workspace recovers its complete implementation Oracle in every repetition. Removing CodeGraph reduces this to one repetition, removing only the controller to two, and removing both to none. A saved Full Workspace trace also shows a limitation: the relevant \texttt{\_binop} owner remains in final evidence, but its visible source shrinks during a later coverage call and loses part of the function signature and return context. The case therefore supports both sides of the aggregate result. Structural and adaptive processing can preserve an implementation that the simpler variants often miss, while survival of its file and identity does not guarantee stable presentation of its complete proof.
 
-% POST-REPAIR CASE NOTE: Replace this historical positive example. In the current repaired runs, Full Workspace recovered complete implementation evidence in only 1/4 runs rather than the old 4/4. The final evaluation must report this regression and should not attribute its cause to owner repair without a boundary audit.
+
 
 TypeScript 35468 provides a second controller-sensitive mechanism case. Full Workspace reaches R@5 of 0.625 and complete recall in two of four repetitions. The graphless condition reaches the same R@5 but never complete recall, while both controller-disabled conditions reach R@5 of 0.500 and also never complete the Oracle. The result is consistent with later exploration helping assemble more of a multi-file mechanism, but the variation across repetitions prevents treating one recovered set as a deterministic controller outcome.
 
@@ -188,4 +184,3 @@ Finally, TypeScript 19074 shows the size of the complete-system divergence on a 
 
 Together, the aggregate and trace results separate three findings. Codex provides the strongest file localisation at the highest token cost. Adaptive exploration supplies small but consistent native recall gains while accounting for most of the native retrieval-flow cost. CodeGraph does not improve aggregate early file ranking and only slightly improves complete recall when paired with the controller, although individual cases show useful structural recovery. The next chapter interprets these findings in relation to the research questions and the limits of the file-level Oracle.
 
-% POST-REPAIR SUMMARY NOTE: Replace this summary with conclusions from the completed repaired evaluation. The current direction is that the controller-enabled CodeGraph ranking penalty disappears, recall remains broadly stable, the controller-disabled interaction stays mixed, and all current native runs remain `partial/false`. Retain a Codex conclusion only if the replacement evaluation includes a directly comparable Codex condition.
