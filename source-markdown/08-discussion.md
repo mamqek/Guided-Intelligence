@@ -1,3 +1,1 @@
 # Discussion
-
-<!-- TODO CodeGraph interpretation: Chapter 6 establishes that malformed graph-derived owners can damage source representation and explains the retained validation repair. Use only the completed replacement evaluation to determine CodeGraph's aggregate effect and its interaction with adaptive exploration. Test whether additional structural candidates create round-zero competition that later exploration can use productively. Report counterexamples, including pandas 10068 if its regression persists, and distinguish file-ranking changes from mechanism completeness. -->
