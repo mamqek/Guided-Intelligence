@@ -9,6 +9,7 @@ Current manuscript state:
 
 - Chapters 1--9 contain the converted thesis manuscript.
 - The implemented intent-contract registry and required-evidence audit are included as appendices.
-- Author, examiner, reviewer, abstract, declaration, and acknowledgements remain placeholders.
+- Author, examiner, reviewer, abstract, and declaration remain placeholders.
+- The acknowledgements section is omitted until content is provided.
 
 The `source-markdown` directory contains a snapshot of the Markdown manuscript and thesis plan used for this export. Re-run `thesis/tools/build_overleaf_project.py` from the repository when a fresh export is needed.
