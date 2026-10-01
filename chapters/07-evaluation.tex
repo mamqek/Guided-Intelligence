@@ -14,7 +14,7 @@ The following table presents the principal ranking results across all 35 cases. 
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.10}
-\begin{tabularx}{\linewidth}{@{}L{0.27\linewidth}*{6}{Z}@{}}
+\begin{tabularx}{0.97\linewidth}{@{}L{0.27\linewidth}*{6}{Z}@{}}
 \toprule
 \textbf{Condition} & \textbf{P@1} & \textbf{P@5} & \textbf{R@5} & \textbf{R@10} & \textbf{NDCG@5} & \textbf{NDCG@10} \\
 \midrule
@@ -27,8 +27,11 @@ Without either capability & 0.443 & 0.187 & 0.470 & 0.486 & 0.430 & 0.402 \\
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
+\begin{samepage}
 The development and held-out partitions follow the same broad recall pattern. The seven held-out cases provide an independent check across all issue categories, although their smaller number makes the exact aggregate values more sensitive to individual cases. Codex has the highest R@5 and NDCG@5 in both partitions. R@5 is higher on the held-out set for all four native conditions, ranging from 0.661 for the combined ablation to 0.786 without CodeGraph. This does not indicate that held-out cases are generally easier; it reflects the particular seven selected cases. Their useful role is to show that the aggregate recall advantage of Codex and the relatively small native-condition differences are not confined to cases used during formative development.
+\end{samepage}
 
 \begin{table}[htbp]
 \centering
@@ -38,7 +41,7 @@ The development and held-out partitions follow the same broad recall pattern. Th
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.10}
-\begin{tabularx}{\linewidth}{@{}L{0.13\linewidth}L{0.25\linewidth}*{5}{Z}@{}}
+\begin{tabularx}{0.99\linewidth}{@{}L{0.16\linewidth}L{0.22\linewidth}*{5}{Z}@{}}
 \toprule
 \textbf{Partition} & \textbf{Condition} & \textbf{P@5} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any impl. hit} & \textbf{Full impl. recall} \\
 \midrule
@@ -56,6 +59,7 @@ Held-out & Full Workspace & 0.214 & 0.679 & 0.527 & 0.750 & 0.607 \\
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
 Repository and issue-category results vary considerably. Codex has the highest R@5 in TypeScript, pandas, and Vue. Among the native configurations, Full Workspace exceeds the graphless condition on TypeScript and pandas R@5, by 0.034 and 0.052 respectively, while the graphless condition exceeds Full Workspace on Vue by 0.059. Controller removal reduces aggregate native recall but not every repository-specific value. These small groups therefore locate heterogeneous behaviour rather than rank repositories or establish that a component is uniformly beneficial for a particular language.
 
@@ -71,7 +75,7 @@ The four native conditions form the two-factor comparison defined in Chapter 4. 
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.10}
-\begin{tabularx}{\linewidth}{@{}L{0.31\linewidth}*{6}{Z}@{}}
+\begin{tabularx}{0.97\linewidth}{@{}L{0.31\linewidth}*{6}{Z}@{}}
 \toprule
 \textbf{Capability contrast} & \textbf{P@1} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any hit} & \textbf{Full recall} & \textbf{Flow-token $\Delta$} \\
 \midrule
@@ -83,6 +87,7 @@ CodeGraph, without adaptive controller & -0.036 & +0.014 & -0.001 & -0.050 & +0.
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
 Adaptive exploration produces modest positive aggregate differences under both structural settings. With CodeGraph enabled, it increases R@5 from 0.484 to 0.517 and full implementation recall from 0.379 to 0.400. Without CodeGraph, R@5 rises from 0.470 to 0.508 and full recall from 0.371 to 0.386. P@1 and NDCG@5 also increase in both comparisons. The direction is consistent with the controller recovering and reprioritising some relevant evidence after round zero, but the scale is limited relative to its additional model use. It also does not transform the native sufficiency outcome discussed below.
 
@@ -145,6 +150,7 @@ Codex
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
 The broader Codex output contributes to this advantage but does not guarantee completeness. On average, five of its 6.49 selected files are outside the implementation Oracle, and 85 Codex runs still omit or only partially expose at least one required unit. Full Workspace selects fewer files and retains fewer required units, but its ablations show that both native capabilities contribute to survival: removing CodeGraph reduces the number of present units by 29 and removing adaptive exploration reduces it by 17. Removing both reduces it by 51.
 
@@ -196,6 +202,7 @@ Without either capability
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
 The independent reference also clarifies the systems' own completeness judgements. The final selector labels 137 Full Workspace runs \texttt{partial} and three \texttt{missing}, while Codex labels all 140 runs \texttt{strong} and sufficient. Required-evidence scoring confirms that native evidence is often incomplete, but it also shows that Codex's universal confidence is not an external completeness result: only 55 Codex runs contain every defined required unit. Conversely, a complete required set establishes source availability, not that the response model understands every relationship between those snippets.
 
@@ -232,6 +239,7 @@ Without either capability & 3.25 & 45,618 & 115.0 & 0.564 & 0.102 \\
 \end{tabularx}
 \endgroup
 \end{table}
+\FloatBarrier
 
 Codex uses approximately 3.6 times the flow tokens of Full Workspace but completes sooner on average. Provider-reported tokens and elapsed time therefore describe different operational costs and should not be treated as interchangeable measures. Disabling adaptive exploration reduces mean flow-token use by 33,494 with CodeGraph and 29,944 without it; the corresponding runtime reductions are 59.6 and 67.4 seconds. CodeGraph adds only 3,845 mean flow tokens when the controller is enabled and 295 when it is disabled, although it increases runtime by 24.1 and 31.8 seconds respectively. The controller is therefore the dominant source of native model-token cost, while both capabilities contribute to execution time.
 
