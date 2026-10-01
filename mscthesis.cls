@@ -249,7 +249,7 @@
 
 % Full-page minipage: top-aligned, textheight tall, content stretched.
 \cs_new_protected:Npn \__mscthesis_fullpage_begin:
-  { \noindent \begin{minipage} [t] [\textheight] [s] { \textwidth } }
+  { \noindent \begin{minipage} [t] [\dimexpr\textheight-\topskip\relax] [s] { \textwidth } }
 
 \cs_new_protected:Npn \__mscthesis_fullpage_end:
   { \end{minipage} }
@@ -408,7 +408,7 @@
     \begingroup
       \let \footnotesize \small
       \let \footnoterule \relax
-      \newpage
+      
       \__mscthesis_titlepage:
       \__mscthesis_committeepage:
       \clearpage
