@@ -1,10 +1,25 @@
-\chapter{Required-Evidence Audit}\label{ch:required-evidence-audit}
+\begingroup
 
-This separately submitted companion file reports all 700 run-level judgements. P means present, Partial means related source survives without all required anchors, and A means absent. \texttt{Final files} is the total number of distinct files returned by final selection. The two represented-file columns show how many files from the required-evidence reference and the broader implementation Oracle occur in that result. A directly recorded loss is supported by an explicit final-selection omission. An inferred boundary is the first stage at which a unit is unavailable after appearing in an earlier recorded stage; it does not identify the exact internal decision responsible.
+\chapter*{Required-Evidence Audit}\label{ch:required-evidence-audit}
+\markboth{Required-Evidence Audit}{Required-Evidence Audit}
+
+\newcounter{auditcase}
+\renewcommand{\thetable}{\arabic{auditcase}.\arabic{table}}
+\newcommand{\auditcase}[1]{%
+  \refstepcounter{auditcase}%
+  \setcounter{table}{0}%
+  \section*{Case \theauditcase: #1}%
+  \markright{Case \theauditcase: #1}%
+}
+
+This separately submitted companion file reports all 700 run-level judgements. P means present, Partial means related source survives without all required anchors, and A means absent. \texttt{Final files} is the total number of distinct files returned by final selection. The \textbf{Required files} and \textbf{Oracle files} columns show how many files from the required-evidence reference and the broader implementation Oracle occur in that result. A directly recorded loss is supported by an explicit final-selection omission. An inferred boundary is the first stage at which a unit is unavailable after appearing in an earlier recorded stage; it does not identify the exact internal decision responsible.
 
 \renewcommand{\arraystretch}{1.05}
+\setlength{\tabcolsep}{1.25pt}
+\let\audittexttt\texttt
+\renewcommand{\texttt}[1]{\path{#1}}
 
-\section{vuejs-vue-10803}\label{sec:vuejs-vue-10803}
+\auditcase{vuejs-vue-10803}\label{sec:vuejs-vue-10803}
 
 SSR routes a textarea DOM value through renderDOMProps into a text VNode child; the pre-resolution path passes null through without string normalization.
 
@@ -12,8 +27,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-10803}\label{tab:vuejs-vue-10803-1}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-10803-1}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -36,15 +51,15 @@ H & \texttt{src/platforms/web/server/modules/dom-props.js:46-50} (\texttt{setTex
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-10803}\label{tab:vuejs-vue-10803-2}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-10803-2}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -76,7 +91,7 @@ Codex & 4 · run-20260902T174007Z & P & Partial & No & 6 & 1/1 & 1/1 & H: Codex 
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-2953}\label{sec:microsoft-typescript-2953}
+\auditcase{microsoft-TypeScript-2953}\label{sec:microsoft-typescript-2953}
 
 The standard declaration surface contains ArrayBuffer types but omits DataView and its constructor.
 
@@ -84,8 +99,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-2953}\label{tab:microsoft-typescript-2953-3}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-2953-3}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -107,15 +122,15 @@ D & \texttt{src/lib/extensions.d.ts:1-45} (\texttt{ArrayBuffer declaration regio
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-2953}\label{tab:microsoft-typescript-2953-4}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-2953-4}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -147,7 +162,7 @@ Codex & 4 · run-20260902T143228Z & A & No & 7 & 0/1 & 0/1 & D: Codex internal t
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-10068}\label{sec:pandas-dev-pandas-10068}
+\auditcase{pandas-dev-pandas-10068}\label{sec:pandas-dev-pandas-10068}
 
 Series.add dispatches through a generated flexible arithmetic wrapper into Series.\_binop, which calculates a common name but constructs and finalizes the result without using it.
 
@@ -155,8 +170,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-10068}\label{tab:pandas-dev-pandas-10068-5}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-10068-5}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -180,15 +195,15 @@ B & \texttt{pandas/core/series.py:1466-1511} (\texttt{Series.\_binop}) & Combine
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-10068}\label{tab:pandas-dev-pandas-10068-6}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-10068-6}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{W} & \textbf{M} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{W} & \textbf{M} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{W} & \textbf{M} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{W} & \textbf{M} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -220,7 +235,7 @@ Codex & 4 · run-20260902T152024Z & P & P & P & Yes & 6 & 3/3 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-10519}\label{sec:vuejs-vue-10519}
+\auditcase{vuejs-vue-10519}\label{sec:vuejs-vue-10519}
 
 Prop-validation error construction eagerly formats the received Symbol using an expected primitive type, causing the diagnostic path itself to fail.
 
@@ -228,8 +243,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-10519}\label{tab:vuejs-vue-10519-7}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-10519-7}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -252,15 +267,15 @@ F & \texttt{src/core/util/props.js:224-238} (\texttt{styleValue/isExplicable}) &
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-10519}\label{tab:vuejs-vue-10519-8}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-10519-8}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{V} & \textbf{F} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{V} & \textbf{F} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{V} & \textbf{F} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{V} & \textbf{F} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -292,7 +307,7 @@ Codex & 4 · run-20260902T170920Z & P & Partial & No & 5 & 1/1 & 1/1 & F: Codex 
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-6301}\label{sec:vuejs-vue-6301}
+\auditcase{vuejs-vue-6301}\label{sec:vuejs-vue-6301}
 
 The package exposes JavaScript client/server webpack-plugin entry points but provides no corresponding declaration entry points.
 
@@ -300,8 +315,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{3}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-6301}\label{tab:vuejs-vue-6301-9}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-6301-9}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -325,15 +340,15 @@ S & \texttt{packages/vue-server-renderer/server-plugin.js:32-99} (\texttt{server
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-6301}\label{tab:vuejs-vue-6301-10}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-6301-10}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -365,7 +380,7 @@ Codex & 4 · run-20260902T181713Z & P & P & A & No & 9 & 2/3 & 1/11 & S: Codex i
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-45713}\label{sec:microsoft-typescript-45713}
+\auditcase{microsoft-TypeScript-45713}\label{sec:microsoft-typescript-45713}
 
 Watch/build paths count diagnostics and forward only a scalar error count to a formatter that can print no per-file breakdown.
 
@@ -373,8 +388,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-45713}\label{tab:microsoft-typescript-45713-11}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-45713-11}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -399,15 +414,15 @@ R & \texttt{src/compiler/tsbuildPublic.ts:2000-2027} (\texttt{solution-builder r
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{4}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-45713}\label{tab:microsoft-typescript-45713-12}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{4}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.302\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-45713-12}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{W} & \textbf{B} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{W} & \textbf{B} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{11}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{W} & \textbf{B} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{W} & \textbf{B} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -439,7 +454,7 @@ Codex & 4 · run-20260902T145024Z & P & P & A & P & No & 5 & 2/2 & 4/7 & B: Code
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-4542}\label{sec:pandas-dev-pandas-4542}
+\auditcase{pandas-dev-pandas-4542}\label{sec:pandas-dev-pandas-4542}
 
 DataFrame.to\_excel delegates through ExcelWriter's engine registry, whose pre-resolution implementations support openpyxl and xlwt but not xlsxwriter.
 
@@ -447,8 +462,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-4542}\label{tab:pandas-dev-pandas-4542-13}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-4542-13}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -473,15 +488,15 @@ X & \texttt{pandas/io/excel.py:412-612} (\texttt{writer implementations}) & Show
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{4}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-4542}\label{tab:pandas-dev-pandas-4542-14}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{4}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.302\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-4542-14}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{R} & \textbf{E} & \textbf{X} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{R} & \textbf{E} & \textbf{X} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{11}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{R} & \textbf{E} & \textbf{X} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{D} & \textbf{R} & \textbf{E} & \textbf{X} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -513,7 +528,7 @@ Codex & 4 · run-20260902T165201Z & P & P & P & Partial & No & 9 & 2/2 & 2/3 & X
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-10020}\label{sec:microsoft-typescript-10020}
+\auditcase{microsoft-TypeScript-10020}\label{sec:microsoft-typescript-10020}
 
 Organize Imports collects only top-level import declarations even though the compiler can identify ambient modules, so imports nested in those modules never enter grouping and edit generation.
 
@@ -521,8 +536,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-10020}\label{tab:microsoft-typescript-10020-15}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-10020-15}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -545,15 +560,15 @@ A & \texttt{src/compiler/utilities.ts:423-433} (\texttt{isAmbientModule}) & Prov
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-10020}\label{tab:microsoft-typescript-10020-16}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-10020-16}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{O} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{O} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{O} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{O} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -585,7 +600,7 @@ Codex & 4 · run-20260902T133926Z & P & A & No & 5 & 1/2 & 1/2 & A: Codex intern
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-14942}\label{sec:pandas-dev-pandas-14942}
+\auditcase{pandas-dev-pandas-14942}\label{sec:pandas-dev-pandas-14942}
 
 Categorical groupby carries every category into grouping and later re-expands the Cartesian result space, even when only a small subset is observed.
 
@@ -593,8 +608,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-14942}\label{tab:pandas-dev-pandas-14942-17}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-14942-17}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -620,15 +635,15 @@ R & \texttt{pandas/core/groupby/groupby.py:4690-4725} (\texttt{\_GroupBy.\_reind
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{5}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-14942}\label{tab:pandas-dev-pandas-14942-18}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{5}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.280\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-14942-18}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{G} & \textbf{I} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{G} & \textbf{I} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{12}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{G} & \textbf{I} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{C} & \textbf{G} & \textbf{I} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -660,7 +675,7 @@ Codex & 4 · run-20260902T153916Z & A & A & A & P & P & No & 5 & 1/3 & 1/6 & P: 
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-16764}\label{sec:pandas-dev-pandas-16764}
+\auditcase{pandas-dev-pandas-16764}\label{sec:pandas-dev-pandas-16764}
 
 Importing core pandas modules eagerly imports computation, plotting, and optional I/O dependencies before their features are used.
 
@@ -668,8 +683,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{5}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-16764}\label{tab:pandas-dev-pandas-16764-19}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-16764-19}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -695,15 +710,15 @@ I & \texttt{pandas/io/common.py:1-45} (\texttt{optional I/O imports}) & Attempts
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{5}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-16764}\label{tab:pandas-dev-pandas-16764-20}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{5}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.280\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-16764-20}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{F} & \textbf{O} & \textbf{C} & \textbf{P} & \textbf{I} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{F} & \textbf{O} & \textbf{C} & \textbf{P} & \textbf{I} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{12}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{F} & \textbf{O} & \textbf{C} & \textbf{P} & \textbf{I} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{F} & \textbf{O} & \textbf{C} & \textbf{P} & \textbf{I} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -735,7 +750,7 @@ Codex & 4 · run-20260902T155344Z & A & A & A & P & A & No & 9 & 1/5 & 3/17 & F:
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-10041}\label{sec:microsoft-typescript-10041}
+\auditcase{microsoft-TypeScript-10041}\label{sec:microsoft-typescript-10041}
 
 Logical-or and conditional expressions reduce their alternatives directly through getUnionType, which can choose a less specific array type despite one alternative being assignable to the other.
 
@@ -743,8 +758,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-10041}\label{tab:microsoft-typescript-10041-21}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-10041-21}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -767,15 +782,15 @@ C & \texttt{src/compiler/checker.ts:13165-13180} (\texttt{checkConditionalExpres
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-10041}\label{tab:microsoft-typescript-10041-22}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-10041-22}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -807,7 +822,7 @@ Codex & 4 · run-20260902T135126Z & P & A & No & 5 & 1/1 & 1/1 & C: Codex intern
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-10473}\label{sec:microsoft-typescript-10473}
+\auditcase{microsoft-TypeScript-10473}\label{sec:microsoft-typescript-10473}
 
 Configuration diagnostics are emitted only when the diagnostics array is non-empty, and Session separately gates the open-file event, so a config change that clears errors produces no event.
 
@@ -815,8 +830,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-10473}\label{tab:microsoft-typescript-10473-23}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-10473-23}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -840,15 +855,15 @@ O & \texttt{src/server/session.ts:710-730} (\texttt{Session.openClientFile}) & E
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-10473}\label{tab:microsoft-typescript-10473-24}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-10473-24}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{S} & \textbf{O} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{S} & \textbf{O} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{S} & \textbf{O} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{S} & \textbf{O} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -880,7 +895,7 @@ Codex & 4 · run-20260902T140031Z & P & Partial & P & No & 4 & 2/2 & 2/2 & S: Co
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-16278}\label{sec:microsoft-typescript-16278}
+\auditcase{microsoft-TypeScript-16278}\label{sec:microsoft-typescript-16278}
 
 The old refactor API exposes applicable refactor names and then requests a whole refactor's code actions, without a distinct selected-action edit request and rename metadata contract.
 
@@ -888,8 +903,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{6}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-16278}\label{tab:microsoft-typescript-16278-25}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-16278-25}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -916,15 +931,15 @@ C & \texttt{src/server/client.ts:710-745} (\texttt{SessionClient refactor adapte
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{6}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-16278}\label{tab:microsoft-typescript-16278-26}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{6}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.258\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-16278-26}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{T} & \textbf{P} & \textbf{L} & \textbf{Q} & \textbf{S} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{T} & \textbf{P} & \textbf{L} & \textbf{Q} & \textbf{S} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{13}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{T} & \textbf{P} & \textbf{L} & \textbf{Q} & \textbf{S} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{T} & \textbf{P} & \textbf{L} & \textbf{Q} & \textbf{S} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -956,7 +971,7 @@ Codex & 4 · run-20260902T140840Z & Partial & P & A & P & P & P & No & 6 & 5/6 &
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-19074}\label{sec:microsoft-typescript-19074}
+\auditcase{microsoft-TypeScript-19074}\label{sec:microsoft-typescript-19074}
 
 The change updates stale LSHost terminology in comments without altering runtime behavior.
 
@@ -964,8 +979,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-19074}\label{tab:microsoft-typescript-19074-27}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-19074-27}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -988,15 +1003,15 @@ P & \texttt{src/server/project.ts:946-960} (\texttt{external-file comment}) & Co
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-19074}\label{tab:microsoft-typescript-19074-28}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-19074-28}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{M} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{M} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{M} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{M} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1028,7 +1043,7 @@ Codex & 4 · run-20260902T141439Z & P & P & Yes & 7 & 2/2 & 2/2 & --- \\
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-24625}\label{sec:microsoft-typescript-24625}
+\auditcase{microsoft-TypeScript-24625}\label{sec:microsoft-typescript-24625}
 
 Three watch-builder factory overloads require rootNames and options even though the CreateProgram callback contract can supply undefined values.
 
@@ -1036,8 +1051,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-24625}\label{tab:microsoft-typescript-24625-29}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-24625-29}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1059,15 +1074,15 @@ B & \texttt{src/compiler/builder.ts:545-577} (\texttt{builder factory overloads}
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-24625}\label{tab:microsoft-typescript-24625-30}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-24625-30}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1099,7 +1114,7 @@ Codex & 4 · run-20260902T142250Z & Partial & No & 6 & 1/1 & 1/1 & B: Codex inte
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-35468}\label{sec:microsoft-typescript-35468}
+\auditcase{microsoft-TypeScript-35468}\label{sec:microsoft-typescript-35468}
 
 Incremental builder state keys dependency, signature, affected-file, and emit maps by sourceFile.path even though project-reference aliases require the canonical resolvedPath identity.
 
@@ -1107,8 +1122,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-35468}\label{tab:microsoft-typescript-35468-31}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-35468-31}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1133,15 +1148,15 @@ E & \texttt{src/compiler/builder.ts:315-425} (\texttt{builder affected/emit stat
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{4}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-35468}\label{tab:microsoft-typescript-35468-32}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{4}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.302\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-35468-32}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{I} & \textbf{U} & \textbf{A} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{I} & \textbf{U} & \textbf{A} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{11}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{I} & \textbf{U} & \textbf{A} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{I} & \textbf{U} & \textbf{A} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1173,7 +1188,7 @@ Codex & 4 · run-20260902T144021Z & Partial & Partial & Partial & Partial & No &
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-46770}\label{sec:microsoft-typescript-46770}
+\auditcase{microsoft-TypeScript-46770}\label{sec:microsoft-typescript-46770}
 
 NodeNext package resolution keeps ESM-mode extension rules active while resolving the main field of a CommonJS package, so an extensionless main target is rejected.
 
@@ -1181,8 +1196,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-46770}\label{tab:microsoft-typescript-46770-33}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-46770-33}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1204,15 +1219,15 @@ R & \texttt{src/compiler/moduleNameResolver.ts:1784-1826} (\texttt{loadNodeModul
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-46770}\label{tab:microsoft-typescript-46770-34}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-46770-34}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1244,7 +1259,7 @@ Codex & 4 · run-20260902T150102Z & P & Yes & 7 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{microsoft-TypeScript-52695}\label{sec:microsoft-typescript-52695}
+\auditcase{microsoft-TypeScript-52695}\label{sec:microsoft-typescript-52695}
 
 Node-module resolution performs file probes for URI-like specifiers and package-root candidates before directory/package handling, producing avoidable filesystem stat calls.
 
@@ -1252,8 +1267,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{microsoft-TypeScript-52695}\label{tab:microsoft-typescript-52695-35}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:microsoft-typescript-52695-35}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1276,15 +1291,15 @@ L & \texttt{src/compiler/moduleNameResolver.ts:2868-2910} (\texttt{loadModuleFro
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{microsoft-TypeScript-52695}\label{tab:microsoft-typescript-52695-36}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:microsoft-typescript-52695-36}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{L} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{L} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{L} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{L} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1316,7 +1331,7 @@ Codex & 4 · run-20260902T151121Z & A & P & No & 4 & 1/1 & 1/3 & N: Codex intern
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-10150}\label{sec:pandas-dev-pandas-10150}
+\auditcase{pandas-dev-pandas-10150}\label{sec:pandas-dev-pandas-10150}
 
 The value\_counts wrapper delegates to algorithms.value\_counts, which converts away the input object's name and constructs the count Series unnamed; index reconstruction then incorrectly applies the original name to the result index.
 
@@ -1324,8 +1339,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-10150}\label{tab:pandas-dev-pandas-10150-37}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-10150-37}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1348,15 +1363,15 @@ B & \texttt{pandas/core/base.py:399-445} (\texttt{IndexOpsMixin.value\_counts}) 
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-10150}\label{tab:pandas-dev-pandas-10150-38}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-10150-38}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1388,7 +1403,7 @@ Codex & 4 · run-20260902T152831Z & P & P & Yes & 4 & 2/2 & 2/2 & --- \\
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-16499}\label{sec:pandas-dev-pandas-16499}
+\auditcase{pandas-dev-pandas-16499}\label{sec:pandas-dev-pandas-16499}
 
 Pytest cannot collect the ujson test groups because their class names do not begin with Test.
 
@@ -1396,8 +1411,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-16499}\label{tab:pandas-dev-pandas-16499-39}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-16499-39}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1421,15 +1436,15 @@ P & \texttt{pandas/tests/io/json/test\_ujson.py:1218-1240} (\texttt{PandasJSONTe
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-16499}\label{tab:pandas-dev-pandas-16499-40}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-16499-40}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{N} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{N} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{N} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{N} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1461,7 +1476,7 @@ Codex & 4 · run-20260902T154527Z & P & P & P & Yes & 2 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-22698}\label{sec:pandas-dev-pandas-22698}
+\auditcase{pandas-dev-pandas-22698}\label{sec:pandas-dev-pandas-22698}
 
 Index comparison deliberately records and suppresses NumPy's invalid-elementwise-comparison FutureWarning before returning the comparison result.
 
@@ -1469,8 +1484,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-22698}\label{tab:pandas-dev-pandas-22698-41}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-22698-41}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1492,15 +1507,15 @@ C & \texttt{pandas/core/indexes/base.py:60-95} (\texttt{Index comparison cmp\_me
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-22698}\label{tab:pandas-dev-pandas-22698-42}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-22698-42}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1532,7 +1547,7 @@ Codex & 4 · run-20260902T160157Z & A & No & 3 & 0/1 & 0/1 & C: Codex internal t
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-22872}\label{sec:pandas-dev-pandas-22872}
+\auditcase{pandas-dev-pandas-22872}\label{sec:pandas-dev-pandas-22872}
 
 Both repository lint configurations explicitly ignore E722, permitting bare except clauses in the test suite.
 
@@ -1540,8 +1555,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-22872}\label{tab:pandas-dev-pandas-22872-43}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-22872-43}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1564,15 +1579,15 @@ P & \texttt{.pep8speaks.yml:8-20} (\texttt{pep8speaks ignore list}) & Disables E
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-22872}\label{tab:pandas-dev-pandas-22872-44}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-22872-44}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1604,7 +1619,7 @@ Codex & 4 · run-20260902T160958Z & A & A & No & 8 & 0/2 & 0/2 & S: Codex intern
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-25183}\label{sec:pandas-dev-pandas-25183}
+\auditcase{pandas-dev-pandas-25183}\label{sec:pandas-dev-pandas-25183}
 
 Concat reindexing treats an all-missing extension block like a NumPy block and replaces it with an array of the common empty dtype, losing the nullable Int64 extension dtype during merge.
 
@@ -1612,8 +1627,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-25183}\label{tab:pandas-dev-pandas-25183-45}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-25183-45}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1635,15 +1650,15 @@ J & \texttt{pandas/core/internals/concat.py:165-215} (\texttt{JoinUnit.get\_rein
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-25183}\label{tab:pandas-dev-pandas-25183-46}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-25183-46}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{J} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{J} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{J} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{J} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1675,7 +1690,7 @@ Codex & 4 · run-20260902T161908Z & A & No & 7 & 1/1 & 1/1 & J: Codex internal t
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-32289}\label{sec:pandas-dev-pandas-32289}
+\auditcase{pandas-dev-pandas-32289}\label{sec:pandas-dev-pandas-32289}
 
 DataFrame construction converts each nested value with np.asarray, then rejects non-two-dimensional results with a generic error that omits the observed shape.
 
@@ -1683,8 +1698,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-32289}\label{tab:pandas-dev-pandas-32289-47}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-32289-47}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1706,15 +1721,15 @@ C & \texttt{pandas/core/internals/construction.py:290-328} (\texttt{to\_arrays.c
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-32289}\label{tab:pandas-dev-pandas-32289-48}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-32289-48}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{C} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1746,7 +1761,7 @@ Codex & 4 · run-20260902T162810Z & P & Yes & 4 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-35925}\label{sec:pandas-dev-pandas-35925}
+\auditcase{pandas-dev-pandas-35925}\label{sec:pandas-dev-pandas-35925}
 
 The repository pins Black 19.10b0; updating the formatter changes accepted trailing-comma formatting across many otherwise unrelated files.
 
@@ -1754,8 +1769,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-35925}\label{tab:pandas-dev-pandas-35925-49}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-35925-49}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1777,15 +1792,15 @@ B & \texttt{.pre-commit-config.yaml:1-7} (\texttt{Black pre-commit hook}) & Pins
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-35925}\label{tab:pandas-dev-pandas-35925-50}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-35925-50}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{B} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1817,7 +1832,7 @@ Codex & 4 · run-20260902T163327Z & P & Yes & 8 & 1/1 & 3/13 & --- \\
 \endgroup
 \end{landscape}
 
-\section{pandas-dev-pandas-36617}\label{sec:pandas-dev-pandas-36617}
+\auditcase{pandas-dev-pandas-36617}\label{sec:pandas-dev-pandas-36617}
 
 The rst-backticks hook excludes a named set of documentation files, leaving their single-backtick markup outside automated enforcement.
 
@@ -1825,8 +1840,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{pandas-dev-pandas-36617}\label{tab:pandas-dev-pandas-36617-51}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:pandas-dev-pandas-36617-51}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1848,15 +1863,15 @@ R & \texttt{.pre-commit-config.yaml:33-53} (\texttt{rst-backticks hook}) & Shows
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{pandas-dev-pandas-36617}\label{tab:pandas-dev-pandas-36617-52}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:pandas-dev-pandas-36617-52}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1888,7 +1903,7 @@ Codex & 4 · run-20260902T164307Z & P & Yes & 15 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-10004}\label{sec:vuejs-vue-10004}
+\auditcase{vuejs-vue-10004}\label{sec:vuejs-vue-10004}
 
 DOM listeners are reconciled on create/update only; destroying a deactivated component has no hook that reuses the old element to remove stale v-model listeners.
 
@@ -1896,8 +1911,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-10004}\label{tab:vuejs-vue-10004-53}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-10004-53}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1919,15 +1934,15 @@ E & \texttt{src/platforms/web/runtime/modules/events.js:100-120} (\texttt{update
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-10004}\label{tab:vuejs-vue-10004-54}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-10004-54}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{E} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -1959,7 +1974,7 @@ Codex & 4 · run-20260902T170109Z & P & Yes & 14 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-11718}\label{sec:vuejs-vue-11718}
+\auditcase{vuejs-vue-11718}\label{sec:vuejs-vue-11718}
 
 The SSR webpack plugins assume webpack 4's emit hook, string entry assets, space-suffixed module hashes, and the legacy libraryTarget shape.
 
@@ -1967,8 +1982,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-11718}\label{tab:vuejs-vue-11718-55}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-11718-55}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -1992,15 +2007,15 @@ S & \texttt{src/server/webpack-plugin/server.js:1-60} (\texttt{VueSSRServerPlugi
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-11718}\label{tab:vuejs-vue-11718-56}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-11718-56}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{C} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2032,7 +2047,7 @@ Codex & 4 · run-20260902T174620Z & Partial & A & Partial & No & 6 & 2/3 & 2/3 &
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-11782}\label{sec:vuejs-vue-11782}
+\auditcase{vuejs-vue-11782}\label{sec:vuejs-vue-11782}
 
 The test toolchain pins an http-server version whose command behavior is incompatible with the Windows test workflow.
 
@@ -2040,8 +2055,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-11782}\label{tab:vuejs-vue-11782-57}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-11782-57}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2063,15 +2078,15 @@ H & \texttt{package.json:96-108} (\texttt{http-server development dependency}) &
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-11782}\label{tab:vuejs-vue-11782-58}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-11782-58}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{H} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2103,7 +2118,7 @@ Codex & 4 · run-20260902T175245Z & A & No & 7 & 1/1 & 1/1 & H: Codex internal t
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-13052}\label{sec:vuejs-vue-13052}
+\auditcase{vuejs-vue-13052}\label{sec:vuejs-vue-13052}
 
 The compiler-sfc package has no explicit optional Prettier dependency range, leaving compatibility to an undeclared host installation.
 
@@ -2111,8 +2126,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-13052}\label{tab:vuejs-vue-13052-59}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-13052-59}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2134,15 +2149,15 @@ P & \texttt{packages/compiler-sfc/package.json:1-34} (\texttt{compiler-sfc depen
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-13052}\label{tab:vuejs-vue-13052-60}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-13052-60}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2174,7 +2189,7 @@ Codex & 4 · run-20260902T175755Z & A & No & 1 & 0/1 & 0/1 & P: Codex internal t
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-5884}\label{sec:vuejs-vue-5884}
+\auditcase{vuejs-vue-5884}\label{sec:vuejs-vue-5884}
 
 Vue.set recognizes only numeric-typed array keys, so a numeric string bypasses splice-based reactive array assignment and follows object-property handling.
 
@@ -2182,8 +2197,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-5884}\label{tab:vuejs-vue-5884-61}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-5884-61}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2205,15 +2220,15 @@ S & \texttt{src/core/observer/index.js:185-225} (\texttt{set}) & Branches to arr
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-5884}\label{tab:vuejs-vue-5884-62}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-5884-62}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{S} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2245,7 +2260,7 @@ Codex & 4 · run-20260902T180353Z & P & Yes & 8 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-6097}\label{sec:vuejs-vue-6097}
+\auditcase{vuejs-vue-6097}\label{sec:vuejs-vue-6097}
 
 Inject options normalize only array syntax into plain provider-name strings, and runtime resolution treats every normalized entry as a required provider key with no default path.
 
@@ -2253,8 +2268,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-6097}\label{tab:vuejs-vue-6097-63}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-6097-63}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2277,15 +2292,15 @@ R & \texttt{src/core/instance/inject.js:39-67} (\texttt{resolveInject}) & Uses t
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{2}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-6097}\label{tab:vuejs-vue-6097-64}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{2}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.346\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-6097-64}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{9}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{N} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2317,7 +2332,7 @@ Codex & 4 · run-20260902T181006Z & P & P & Yes & 7 & 2/2 & 2/2 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-8528}\label{sec:vuejs-vue-8528}
+\auditcase{vuejs-vue-8528}\label{sec:vuejs-vue-8528}
 
 The requested change rewrites explanatory comments for shared utility functions without changing their implementations.
 
@@ -2325,8 +2340,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-8528}\label{tab:vuejs-vue-8528-65}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-8528-65}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2348,15 +2363,15 @@ U & \texttt{src/shared/util.js:1-308} (\texttt{shared utility comments}) & Conta
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-8528}\label{tab:vuejs-vue-8528-66}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-8528-66}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{U} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2388,7 +2403,7 @@ Codex & 4 · run-20260902T182239Z & Partial & No & 1 & 1/1 & 1/1 & U: Codex inte
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-9042}\label{sec:vuejs-vue-9042}
+\auditcase{vuejs-vue-9042}\label{sec:vuejs-vue-9042}
 
 On IE, assigning any placeholder to an input or textarea installs a one-shot input-event blocker; an empty textarea placeholder therefore consumes the first real user input event.
 
@@ -2396,8 +2411,8 @@ Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. I
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-9042}\label{tab:vuejs-vue-9042-67}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-9042-67}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2419,15 +2434,15 @@ A & \texttt{src/platforms/web/runtime/modules/attrs.js:88-115} (\texttt{baseSetA
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{1}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-9042}\label{tab:vuejs-vue-9042-68}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{1}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.368\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-9042-68}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{A} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2459,7 +2474,7 @@ Codex & 4 · run-20260902T183138Z & P & Yes & 11 & 1/1 & 1/1 & --- \\
 \endgroup
 \end{landscape}
 
-\section{vuejs-vue-9842}\label{sec:vuejs-vue-9842}
+\auditcase{vuejs-vue-9842}\label{sec:vuejs-vue-9842}
 
 KeepAlive stores the rendered VNode in its cache immediately, while transition patching can still replace its component instance; later pruning destroys the stale cached instance and leaves the live instance retained.
 
@@ -2467,8 +2482,8 @@ Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. 
 
 \begingroup
 \small
-\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
-\caption{vuejs-vue-9842}\label{tab:vuejs-vue-9842-69}\\
+\begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
+\caption{Required source units}\label{tab:vuejs-vue-9842-69}\\
 \toprule
 \textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
@@ -2492,15 +2507,15 @@ R & \texttt{src/core/components/keep-alive.js:83-124} (\texttt{KeepAlive.render}
 \begin{landscape}
 \begingroup
 \scriptsize
-\begin{longtable}{@{}L{0.12\linewidth}L{0.16\linewidth}*{3}{L{0.025\linewidth}}L{0.055\linewidth}L{0.055\linewidth}L{0.095\linewidth}L{0.095\linewidth}L{0.24\linewidth}@{}}
-\caption{vuejs-vue-9842}\label{tab:vuejs-vue-9842-70}\\
+\begin{longtable}{@{}L{0.11\linewidth}L{0.16\linewidth}*{3}{L{0.022\linewidth}}L{0.05\linewidth}L{0.045\linewidth}L{0.08\linewidth}L{0.085\linewidth}L{0.324\linewidth}@{}}
+\caption{Run-level evidence survival}\label{tab:vuejs-vue-9842-70}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{L} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{L} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endfirsthead
 \multicolumn{10}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{L} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files represented} & \textbf{Implementation-Oracle files represented} & \textbf{Unit unavailability boundaries} \\
+\textbf{Condition} & \textbf{Repetition / run ID} & \textbf{P} & \textbf{L} & \textbf{R} & \textbf{Complete?} & \textbf{Final files} & \textbf{Required files} & \textbf{Oracle files} & \textbf{First unavailable boundary} \\
 \midrule
 \endhead
 \midrule
@@ -2531,3 +2546,4 @@ Codex & 4 · run-20260902T184850Z & Partial & Partial & P & No & 8 & 1/1 & 1/1 &
 \end{longtable}
 \endgroup
 \end{landscape}
+\endgroup
