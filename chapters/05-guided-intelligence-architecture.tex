@@ -87,38 +87,148 @@ Retained observations are organised as structural components and evidence island
 
 For each round, application code constructs typed actions from unresolved obligations, qualified observations, current island state, available structural operations, and material preserved during initial construction. Every action has a stable identity and purpose, a scope linking it to an obligation or evidence island, and a normalized effect describing the operation and target it would cover. The purpose assigns the action to a scheduler pool, whose capacity it shares with the other action families in that pool. The table lists the actions eligible for scheduling in the current controller. Its categories group related purposes for explanation; they do not create additional scheduler pools.
 
-\begin{landscape}
+\Needspace{0.35\textheight}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}@{}}
-\caption{Controller action families and scheduling dependencies}\label{tab:controller-action-families-and-scheduling-dependencies-2}\\
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+
+\begin{longtable}{@{}L{0.22\linewidth}L{0.45\linewidth}L{0.27\linewidth}@{}}
+\caption{Controller action families and scheduling dependencies}
+\label{tab:controller-action-families-and-scheduling-dependencies-2}\\
 \toprule
-\textbf{Category} & \textbf{Action} & \textbf{Role and scope} & \textbf{Effect used to detect repetition} & \textbf{Execution dependency} & \textbf{Scheduler pool} \\
+\textbf{Action and category}
+&
+\textbf{Purpose and repetition identity}
+&
+\textbf{Execution and scheduling}
+\\
 \midrule
 \endfirsthead
-\multicolumn{6}{c}{\tablename\ \thetable\ -- continued}\\
+
+\multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Category} & \textbf{Action} & \textbf{Role and scope} & \textbf{Effect used to detect repetition} & \textbf{Execution dependency} & \textbf{Scheduler pool} \\
+\textbf{Action and category}
+&
+\textbf{Purpose and repetition identity}
+&
+\textbf{Execution and scheduling}
+\\
 \midrule
 \endhead
+
 \midrule
-\multicolumn{6}{r}{Continued on next page}\\
+\multicolumn{3}{r}{Continued on next page}\\
 \endfoot
+
 \bottomrule
 \endlastfoot
-Recovery & Deferred discovery or owner disclosure & Inspect a preserved observation or disclose its resolved owner & Observation and requested source range & Preserved observation and exact source access & Ordinary \\
-Recovery & Owner continuation & Reveal an omitted portion of an identified owner & Observation and complete owner range & Resolved owner boundary and exact source access & Ordinary \\
-Recovery & Dormant-file alternatives & Inspect already retrieved owners from a file with no qualified observation & File and candidate-owner set & Preserved owner candidates and exact source access & Ordinary \\
-Exploration & Relationship expansion & Follow specified structural relationships from a qualified root & Root node, direction, relationship kinds, anchors, and cross-file boundary & CodeGraph & Ordinary \\
-Exploration & Within-file handoff or handoff completion & Search a known file for an unresolved mechanism or complete an earlier cross-file transition & File, source observation, action purpose, and query anchors & Qdrant, with structural resolution when available & Ordinary \\
-Exploration & New-island search & Search beyond represented islands for an unresolved obligation & Exact and lexical query targets & Qdrant, with structural resolution when available & Ordinary \\
-Recovery & Deferred-file rescue & Use a strong held owner to search its file for a missing mechanism & File, source observation, and query anchors & CodeGraph owner and Qdrant & Deferred-file rescue \\
-Maturation & Owner maturation & Extend an incomplete promoted implementation owner & Observation and complete owner range, or a focused same-file query & Exact source access or Qdrant; structural resolution when available & Owner-maturation preselection, followed by ordinary capacity \\
-Maturation & Test-scenario maturation & Find scenario or assertion code behind a promising test range & File, source observation, and query anchors & Qdrant, with structural resolution when available & Test maturation \\
-Verified continuation & Verified source lead or structural-child handoff & Inspect an exact node named by qualified source or follow its verified cross-file call & Exact target node or directed structural expansion & CodeGraph resolution and exact source access & Verified lead \\
+
+\textit{Recovery}\par
+Deferred discovery or owner disclosure
+&
+Inspects a preserved observation or discloses its resolved owner.
+\par\textit{Repeat identity:} Observation and requested source range.
+&
+\textit{Requires:} Preserved observation and exact source access.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Recovery}\par
+Owner continuation
+&
+Reveals an omitted portion of an identified owner.
+\par\textit{Repeat identity:} Observation and complete owner range.
+&
+\textit{Requires:} Resolved owner boundary and exact source access.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Recovery}\par
+Dormant-file alternatives
+&
+Inspects already retrieved owners from a file with no qualified observation.
+\par\textit{Repeat identity:} File and candidate-owner set.
+&
+\textit{Requires:} Preserved owner candidates and exact source access.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Exploration}\par
+Relationship expansion
+&
+Follows specified structural relationships from a qualified root.
+\par\textit{Repeat identity:} Root node, direction, relationship kinds, anchors, and cross-file boundary.
+&
+\textit{Requires:} CodeGraph.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Exploration}\par
+Within-file handoff or handoff completion
+&
+Searches a known file for an unresolved mechanism or completes an earlier cross-file transition.
+\par\textit{Repeat identity:} File, source observation, action purpose, and query anchors.
+&
+\textit{Requires:} Qdrant, with structural resolution when available.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Exploration}\par
+New-island search
+&
+Searches beyond represented islands for an unresolved obligation.
+\par\textit{Repeat identity:} Exact and lexical query targets.
+&
+\textit{Requires:} Qdrant, with structural resolution when available.
+\par\textit{Pool:} Ordinary.
+\\
+
+\textit{Recovery}\par
+Deferred-file rescue
+&
+Uses a strong held owner to search its file for a missing mechanism.
+\par\textit{Repeat identity:} File, source observation, and query anchors.
+&
+\textit{Requires:} CodeGraph owner and Qdrant.
+\par\textit{Pool:} Deferred-file rescue.
+\\
+
+\textit{Maturation}\par
+Owner maturation
+&
+Extends an incomplete promoted implementation owner.
+\par\textit{Repeat identity:} Observation and complete owner range, or a focused same-file query.
+&
+\textit{Requires:} Exact source access or Qdrant; structural resolution when available.
+\par\textit{Pool:} Owner-maturation preselection, followed by ordinary capacity.
+\\
+
+\textit{Maturation}\par
+Test-scenario maturation
+&
+Finds scenario or assertion code behind a promising test range.
+\par\textit{Repeat identity:} File, source observation, and query anchors.
+&
+\textit{Requires:} Qdrant, with structural resolution when available.
+\par\textit{Pool:} Test maturation.
+\\
+
+\textit{Verified continuation}\par
+Verified source lead or structural-child handoff
+&
+Inspects an exact node named by qualified source or follows its verified cross-file call.
+\par\textit{Repeat identity:} Exact target node or directed structural expansion.
+&
+\textit{Requires:} CodeGraph resolution and exact source access.
+\par\textit{Pool:} Verified lead.
+\\
+
 \end{longtable}
 \endgroup
-\end{landscape}
+
+\Needspace{6\baselineskip}
 
 All listed actions require the adaptive controller, which is enabled in the standard Workspace configuration and disabled in the controller ablations. Structural dependencies become unavailable in the graphless conditions, while Qdrant-based actions can continue with range-level results.
 

@@ -50,36 +50,72 @@ These findings motivate guided questions, staged hints, and feedback that preser
 
 The reviewed work progresses from locating source to assembling support for an explanation, but each line makes a different part of that progression visible.
 
-\begin{landscape}
-\begingroup
-\small
-\begin{longtable}{@{}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}@{}}
-\caption{Comparative Synthesis and Research Gap}\label{tab:comparative-synthesis-and-research-gap-1}\\
-\toprule
-\textbf{Research line} & \textbf{Principal unit} & \textbf{Retrieval or navigation signal} & \textbf{Decision ownership} & \textbf{Typical evaluation focus} & \textbf{Lifecycle visibility} \\
-\midrule
-\endfirsthead
-\multicolumn{6}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Research line} & \textbf{Principal unit} & \textbf{Retrieval or navigation signal} & \textbf{Decision ownership} & \textbf{Typical evaluation focus} & \textbf{Lifecycle visibility} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{6}{r}{Continued on next page}\\
-\endfoot
-\bottomrule
-\endlastfoot
-Concept and bug localisation & File or source document & Lexical, semantic, historical, and field-specific information & Fixed retrieval pipeline & Known-location ranking & Initial ranking \\
-Repository-level retrieval and QA & Repository or cross-file context & Dense retrieval and context augmentation & Pipeline or model policy & Retrieval and answer quality & Retrieved and final context \\
-Structural navigation & Function, owner, or graph node & Calls, references, dependencies, and containment & User, pipeline, or graph-enabled agent & Location recovery and navigation effort & Graph paths and final locations \\
-Agentic repository exploration & Source ranges and tool observations & Iterative search, inspection, and navigation & Predominantly model-directed & Localisation, explanation quality, and cost & Action trajectory \\
-Grounded assistance & Source passage and explanation claim & Retrieval plus source attribution & Mixed & Answer and citation support & Final claim-to-source link \\
-\end{longtable}
-\endgroup
-\end{landscape}
-
 Prior work establishes that semantic matching can bridge vocabulary differences, repository context can support broader questions, structural relationships can recover poorly ranked source, and model-directed exploration can adapt to discoveries made during search. Provenance and citation research further show the importance of making support inspectable. These contributions are complementary, but their evaluations usually emphasise an initial ranking, final location, action outcome, or cited answer.
 
 The remaining gap concerns the controlled construction of mechanism evidence between those endpoints. There is limited evaluation of a pipeline that combines hybrid retrieval, structural-owner resolution, semantic qualification, and bounded iterative navigation while exposing how each evidence item is admitted, transformed, deferred, rejected, recovered, or selected. This matters because a final miss does not reveal whether the responsible source was absent from retrieval or lost later, and a final hit does not establish that the selected evidence explains the required cross-file relationships.
 
+\begin{table}[htbp]
+\centering
+\caption{Comparative synthesis and research gap}
+\label{tab:comparative-synthesis-and-research-gap-1}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\linewidth}{
+  @{}L{0.20\linewidth}YY@{}
+}
+\toprule
+\textbf{Research line}
+& \textbf{Evidence unit and retrieval signal}
+& \textbf{Decision ownership, evaluation, and visibility} \\
+\midrule
+
+Concept and bug localisation
+& \textit{Unit:} File or source document.
+  \par\textit{Signal:} Lexical, semantic, historical, and field-specific information.
+& \textit{Ownership:} Fixed retrieval pipeline.
+  \par\textit{Evaluation:} Known-location ranking.
+  \par\textit{Visibility:} Initial ranking. \\
+
+Repository-level retrieval and QA
+& \textit{Unit:} Repository or cross-file context.
+  \par\textit{Signal:} Dense retrieval and context augmentation.
+& \textit{Ownership:} Pipeline or model policy.
+  \par\textit{Evaluation:} Retrieval and answer quality.
+  \par\textit{Visibility:} Retrieved and final context. \\
+
+Structural navigation
+& \textit{Unit:} Function, owner, or graph node.
+  \par\textit{Signal:} Calls, references, dependencies, and containment.
+& \textit{Ownership:} User, pipeline, or graph-enabled agent.
+  \par\textit{Evaluation:} Location recovery and navigation effort.
+  \par\textit{Visibility:} Graph paths and final locations. \\
+
+Agentic repository exploration
+& \textit{Unit:} Source ranges and tool observations.
+  \par\textit{Signal:} Iterative search, inspection, and navigation.
+& \textit{Ownership:} Predominantly model-directed.
+  \par\textit{Evaluation:} Localisation, explanation quality, and cost.
+  \par\textit{Visibility:} Action trajectory. \\
+
+Grounded assistance
+& \textit{Unit:} Source passage and explanation claim.
+  \par\textit{Signal:} Retrieval plus source attribution.
+& \textit{Ownership:} Mixed.
+  \par\textit{Evaluation:} Answer and citation support.
+  \par\textit{Visibility:} Final claim-to-source link. \\
+
+\bottomrule
+\end{tabularx}
+
+\endgroup
+\end{table}
+
+\begin{samepage}    
+
 This thesis addresses that gap by treating repository evidence as a lifecycle with explicit provenance and bounded decision ownership. It evaluates terminal localisation, the survival of exact required source, and whether all required snippets remain available together, including cases in which those snippets form a connected mechanism. It also compares an application-controlled pipeline with agentic repository exploration in terms of evidence completeness, stability, and cost. Its contribution is not a new claim that text search, graphs, or agents can locate code independently. It is an investigation of how those capabilities can be combined and evaluated as an auditable evidence-construction process for unfamiliar-codebase understanding.
+
+\end{samepage}

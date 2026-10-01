@@ -44,6 +44,10 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Lining}}}
 
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\usepackage{needspace}
+
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{pdflscape}
