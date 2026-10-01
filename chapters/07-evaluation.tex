@@ -6,55 +6,42 @@ This chapter reports the evaluation described in Chapter 4. It comprises 35 Code
 
 The following table presents the principal ranking results across all 35 cases. Codex produces the strongest aggregate recall and ranking results: its R@5 is 0.677, compared with 0.517 for Full Workspace, and its NDCG@5 is 0.511, compared with 0.461. Full Workspace nevertheless places an implementation Oracle first more often, reaching P@1 of 0.450 compared with 0.386 for Codex. Among the native conditions, Workspace without CodeGraph has the highest P@1 and NDCG@5, whereas Full Workspace has the highest R@5 and R@10. The differences between these two configurations are small: Full Workspace gains 0.008 R@5, while the graphless condition gains 0.014 P@1 and 0.015 NDCG@5.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Aggregate file-ranking results}\label{tab:aggregate-file-ranking-results-1}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.19\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}@{}}
-\caption{Aggregate file-ranking results}\label{tab:aggregate-file-ranking-results-1}\\
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\linewidth}{@{}L{0.27\linewidth}*{6}{Z}@{}}
 \toprule
 \textbf{Condition} & \textbf{P@1} & \textbf{P@5} & \textbf{R@5} & \textbf{R@10} & \textbf{NDCG@5} & \textbf{NDCG@10} \\
 \midrule
-\endfirsthead
-\multicolumn{7}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Condition} & \textbf{P@1} & \textbf{P@5} & \textbf{R@5} & \textbf{R@10} & \textbf{NDCG@5} & \textbf{NDCG@10} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{7}{r}{Continued on next page}\\
-\endfoot
-\bottomrule
-\endlastfoot
 Full Workspace & 0.450 & 0.207 & 0.517 & 0.526 & 0.461 & 0.430 \\
 Codex & 0.386 & 0.260 & 0.677 & 0.709 & 0.511 & 0.502 \\
 Without CodeGraph & 0.464 & 0.207 & 0.508 & 0.514 & 0.476 & 0.444 \\
 Without adaptive controller & 0.407 & 0.187 & 0.484 & 0.486 & 0.429 & 0.397 \\
 Without either capability & 0.443 & 0.187 & 0.470 & 0.486 & 0.430 & 0.402 \\
-\end{longtable}
+\bottomrule
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 The development and held-out partitions follow the same broad recall pattern. The seven held-out cases provide an independent check across all issue categories, although their smaller number makes the exact aggregate values more sensitive to individual cases. Codex has the highest R@5 and NDCG@5 in both partitions. R@5 is higher on the held-out set for all four native conditions, ranging from 0.661 for the combined ablation to 0.786 without CodeGraph. This does not indicate that held-out cases are generally easier; it reflects the particular seven selected cases. Their useful role is to show that the aggregate recall advantage of Codex and the relatively small native-condition differences are not confined to cases used during formative development.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{File-ranking results by data partition}\label{tab:file-ranking-results-by-data-partition-2}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.19\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}@{}}
-\caption{File-ranking results by data partition}\label{tab:file-ranking-results-by-data-partition-2}\\
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\linewidth}{@{}L{0.13\linewidth}L{0.25\linewidth}*{5}{Z}@{}}
 \toprule
-\textbf{Partition} & \textbf{Condition} & \textbf{P@5} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any implementation hit} & \textbf{Full implementation recall} \\
+\textbf{Partition} & \textbf{Condition} & \textbf{P@5} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any impl. hit} & \textbf{Full impl. recall} \\
 \midrule
-\endfirsthead
-\multicolumn{7}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Partition} & \textbf{Condition} & \textbf{P@5} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any implementation hit} & \textbf{Full implementation recall} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{7}{r}{Continued on next page}\\
-\endfoot
-\bottomrule
-\endlastfoot
 Development & Full Workspace & 0.205 & 0.477 & 0.445 & 0.696 & 0.348 \\
  & Codex & 0.246 & 0.596 & 0.464 & 0.866 & 0.473 \\
  & Without CodeGraph & 0.198 & 0.439 & 0.439 & 0.661 & 0.295 \\
@@ -65,9 +52,10 @@ Held-out & Full Workspace & 0.214 & 0.679 & 0.527 & 0.750 & 0.607 \\
  & Without CodeGraph & 0.243 & 0.786 & 0.620 & 0.821 & 0.750 \\
  & Without adaptive controller & 0.221 & 0.696 & 0.504 & 0.714 & 0.679 \\
  & Without either capability & 0.207 & 0.661 & 0.486 & 0.786 & 0.679 \\
-\end{longtable}
+\bottomrule
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 Repository and issue-category results vary considerably. Codex has the highest R@5 in TypeScript, pandas, and Vue. Among the native configurations, Full Workspace exceeds the graphless condition on TypeScript and pandas R@5, by 0.034 and 0.052 respectively, while the graphless condition exceeds Full Workspace on Vue by 0.059. Controller removal reduces aggregate native recall but not every repository-specific value. These small groups therefore locate heterogeneous behaviour rather than rank repositories or establish that a component is uniformly beneficial for a particular language.
 
@@ -75,32 +63,26 @@ Repository and issue-category results vary considerably. Codex has the highest R
 
 The four native conditions form the two-factor comparison defined in Chapter 4. The following table reports each capability's observed difference while the other capability is either present or absent. A positive value means that enabling the named capability increases the measure.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Contributions of CodeGraph and adaptive exploration}\label{tab:contributions-of-codegraph-and-adaptive-exploration-3}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.19\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}L{0.125\linewidth}@{}}
-\caption{Contributions of CodeGraph and Adaptive Exploration}\label{tab:contributions-of-codegraph-and-adaptive-exploration-3}\\
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\linewidth}{@{}L{0.31\linewidth}*{6}{Z}@{}}
 \toprule
-\textbf{Capability contrast} & \textbf{P@1} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any hit} & \textbf{Full recall} & \textbf{Mean flow-token difference} \\
+\textbf{Capability contrast} & \textbf{P@1} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any hit} & \textbf{Full recall} & \textbf{Flow-token $\Delta$} \\
 \midrule
-\endfirsthead
-\multicolumn{7}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Capability contrast} & \textbf{P@1} & \textbf{R@5} & \textbf{NDCG@5} & \textbf{Any hit} & \textbf{Full recall} & \textbf{Mean flow-token difference} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{7}{r}{Continued on next page}\\
-\endfoot
-\bottomrule
-\endlastfoot
 Adaptive controller, with CodeGraph & +0.043 & +0.033 & +0.032 & +0.064 & +0.021 & +33,494 \\
 Adaptive controller, without CodeGraph & +0.021 & +0.039 & +0.046 & +0.000 & +0.014 & +29,944 \\
 CodeGraph, with adaptive controller & -0.014 & +0.008 & -0.015 & +0.014 & +0.014 & +3,845 \\
 CodeGraph, without adaptive controller & -0.036 & +0.014 & -0.001 & -0.050 & +0.007 & +295 \\
-\end{longtable}
+\bottomrule
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 Adaptive exploration produces modest positive aggregate differences under both structural settings. With CodeGraph enabled, it increases R@5 from 0.484 to 0.517 and full implementation recall from 0.379 to 0.400. Without CodeGraph, R@5 rises from 0.470 to 0.508 and full recall from 0.371 to 0.386. P@1 and NDCG@5 also increase in both comparisons. The direction is consistent with the controller recovering and reprioritising some relevant evidence after round zero, but the scale is limited relative to its additional model use. It also does not transform the native sufficiency outcome discussed below.
 
@@ -112,33 +94,57 @@ The interaction between the capabilities is limited. Adaptive exploration improv
 
 File ranking describes whether known fixing files reach the returned evidence, but it does not establish whether their responsible source ranges survive. The required-evidence audit therefore evaluates 78 exact source units across all 35 cases and 700 runs. A run is complete only when every required unit is present in its final evidence. Full Workspace completes 23 of 140 runs, compared with 17 without CodeGraph, 19 without the controller, and 10 without either capability. Codex completes 55. Individual-unit survival follows the same overall ordering: 36.2\% for Full Workspace, 26.9\% without CodeGraph, 30.8\% without the controller, 19.9\% without either capability, and 58.7\% for Codex.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Required-evidence survival and completeness}
+\label{tab:required-evidence-survival-and-completeness-4}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}@{}}
-\caption{Required-Evidence Survival and Completeness}\label{tab:required-evidence-survival-and-completeness-4}\\
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}L{0.25\linewidth}YY@{}}
 \toprule
-\textbf{Condition} & \textbf{Evidence-complete runs} & \textbf{Required units present} & \textbf{Mean final files} & \textbf{Mean required files represented} & \textbf{Mean other files} \\
+\textbf{Condition} & \textbf{Required evidence} & \textbf{Selected files} \\
 \midrule
-\endfirsthead
-\multicolumn{6}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Condition} & \textbf{Evidence-complete runs} & \textbf{Required units present} & \textbf{Mean final files} & \textbf{Mean required files represented} & \textbf{Mean other files} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{6}{r}{Continued on next page}\\
-\endfoot
+Full Workspace
+& \textit{Complete runs:} 23/140 (16.4\%).
+  \par\textit{Units present:} 113/312 (36.2\%).
+& \textit{Final:} 3.89.
+  \par\textit{Required represented:} 1.01.
+  \par\textit{Other:} 2.81. \\
+
+Without CodeGraph
+& \textit{Complete runs:} 17/140 (12.1\%).
+  \par\textit{Units present:} 84/312 (26.9\%).
+& \textit{Final:} 3.81.
+  \par\textit{Required represented:} 0.98.
+  \par\textit{Other:} 2.76. \\
+
+Without adaptive controller
+& \textit{Complete runs:} 19/140 (13.6\%).
+  \par\textit{Units present:} 96/312 (30.8\%).
+& \textit{Final:} 3.24.
+  \par\textit{Required represented:} 0.91.
+  \par\textit{Other:} 2.29. \\
+
+Without either capability
+& \textit{Complete runs:} 10/140 (7.1\%).
+  \par\textit{Units present:} 62/312 (19.9\%).
+& \textit{Final:} 3.25.
+  \par\textit{Required represented:} 0.89.
+  \par\textit{Other:} 2.29. \\
+
+Codex
+& \textit{Complete runs:} 55/140 (39.3\%).
+  \par\textit{Units present:} 183/312 (58.7\%).
+& \textit{Final:} 6.49.
+  \par\textit{Required represented:} 1.36.
+  \par\textit{Other:} 5.00. \\
 \bottomrule
-\endlastfoot
-Full Workspace & 23/140 (16.4\%) & 113/312 (36.2\%) & 3.89 & 1.01 & 2.81 \\
-Without CodeGraph & 17/140 (12.1\%) & 84/312 (26.9\%) & 3.81 & 0.98 & 2.76 \\
-Without adaptive controller & 19/140 (13.6\%) & 96/312 (30.8\%) & 3.24 & 0.91 & 2.29 \\
-Without either capability & 10/140 (7.1\%) & 62/312 (19.9\%) & 3.25 & 0.89 & 2.29 \\
-Codex & 55/140 (39.3\%) & 183/312 (58.7\%) & 6.49 & 1.36 & 5.00 \\
-\end{longtable}
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 The broader Codex output contributes to this advantage but does not guarantee completeness. On average, five of its 6.49 selected files are outside the implementation Oracle, and 85 Codex runs still omit or only partially expose at least one required unit. Full Workspace selects fewer files and retains fewer required units, but its ablations show that both native capabilities contribute to survival: removing CodeGraph reduces the number of present units by 29 and removing adaptive exploration reduces it by 17. Removing both reduces it by 51.
 
@@ -146,32 +152,50 @@ Seventeen cases contain two or more required snippets connected through source-l
 
 The Workspace traces locate the missing units more precisely. The table counts every absent or partial unit rather than assigning one boundary to an entire run. Raw retrieval is the first recorded unavailability boundary for 54 Full Workspace units. Another 19 first become unavailable during initial comparison, 31 during controller recovery or semantic qualification, 66 before entering the final candidate pool, and 29 during final evidence selection. The final-selection omissions are directly recorded; the earlier boundaries are inferred from successive stage observations and do not identify the exact rejecting decision. Graphless and controller-disabled conditions exhibit different distributions: removing CodeGraph increases unavailability at raw retrieval and semantic qualification, while disabling the controller increases it at initial comparison because no later exploration can recover the unit. Codex does not expose an equivalent internal trace, so only its final-unit status is reported.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{First recorded unavailability boundaries for required evidence}
+\label{tab:required-evidence-survival-and-completeness-5}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}@{}}
-\caption{Required-Evidence Survival and Completeness}\label{tab:required-evidence-survival-and-completeness-5}\\
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{@{}L{0.25\linewidth}YY@{}}
 \toprule
-\textbf{Condition} & \textbf{Raw retrieval} & \textbf{Initial comparison} & \textbf{Recovery or qualification} & \textbf{Candidate-pool construction} & \textbf{Final selection} \\
+\textbf{Condition} & \textbf{Earlier boundaries} & \textbf{Later boundaries} \\
 \midrule
-\endfirsthead
-\multicolumn{6}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Condition} & \textbf{Raw retrieval} & \textbf{Initial comparison} & \textbf{Recovery or qualification} & \textbf{Candidate-pool construction} & \textbf{Final selection} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{6}{r}{Continued on next page}\\
-\endfoot
+Full Workspace
+& \textit{Raw retrieval:} 54.
+  \par\textit{Initial comparison:} 19.
+  \par\textit{Recovery or qualification:} 31.
+& \textit{Candidate-pool construction:} 66.
+  \par\textit{Final selection:} 29. \\
+
+Without CodeGraph
+& \textit{Raw retrieval:} 78.
+  \par\textit{Initial comparison:} 24.
+  \par\textit{Recovery or qualification:} 71.
+& \textit{Candidate-pool construction:} 32.
+  \par\textit{Final selection:} 23. \\
+
+Without adaptive controller
+& \textit{Raw retrieval:} 90.
+  \par\textit{Initial comparison:} 62.
+  \par\textit{Recovery or qualification:} 49.
+& \textit{Candidate-pool construction:} 0.
+  \par\textit{Final selection:} 15. \\
+
+Without either capability
+& \textit{Raw retrieval:} 82.
+  \par\textit{Initial comparison:} 29.
+  \par\textit{Recovery or qualification:} 134.
+& \textit{Candidate-pool construction:} 0.
+  \par\textit{Final selection:} 5. \\
 \bottomrule
-\endlastfoot
-Full Workspace & 54 & 19 & 31 & 66 & 29 \\
-Without CodeGraph & 78 & 24 & 71 & 32 & 23 \\
-Without adaptive controller & 90 & 62 & 49 & 0 & 15 \\
-Without either capability & 82 & 29 & 134 & 0 & 5 \\
-\end{longtable}
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 The independent reference also clarifies the systems' own completeness judgements. The final selector labels 137 Full Workspace runs \texttt{partial} and three \texttt{missing}, while Codex labels all 140 runs \texttt{strong} and sufficient. Required-evidence scoring confirms that native evidence is often incomplete, but it also shows that Codex's universal confidence is not an external completeness result: only 55 Codex runs contain every defined required unit. Conversely, a complete required set establishes source availability, not that the response model understands every relationship between those snippets.
 
@@ -187,33 +211,27 @@ This remains a complete-system comparison. Codex uses its own iterative reposito
 
 The following table places the quality results beside operational cost and repeated-run stability. Mean pairwise Jaccard similarity measures agreement among the four returned file sets for each case, then averages those case values. A higher value indicates more repeatable file selection. The mean R@10 standard deviation measures variation in recall, with lower values indicating greater stability.
 
-\begin{landscape}
+\begin{table}[htbp]
+\centering
+\caption{Mean efficiency, stability, and failure measures}\label{tab:efficiency-stability-and-failures-6}
+
 \begingroup
 \small
-\begin{longtable}{@{}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}L{0.16\linewidth}@{}}
-\caption{Efficiency, Stability, and Failures}\label{tab:efficiency-stability-and-failures-6}\\
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\linewidth}{@{}L{0.28\linewidth}*{5}{Z}@{}}
 \toprule
-\textbf{Condition} & \textbf{Mean files} & \textbf{Mean flow tokens} & \textbf{Mean seconds} & \textbf{File-set Jaccard} & \textbf{Mean SD of R@10} \\
+\textbf{Condition} & \textbf{Files} & \textbf{Flow tokens} & \textbf{Seconds} & \textbf{File-set Jaccard} & \textbf{SD of R@10} \\
 \midrule
-\endfirsthead
-\multicolumn{6}{c}{\tablename\ \thetable\ -- continued}\\
-\toprule
-\textbf{Condition} & \textbf{Mean files} & \textbf{Mean flow tokens} & \textbf{Mean seconds} & \textbf{File-set Jaccard} & \textbf{Mean SD of R@10} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{6}{r}{Continued on next page}\\
-\endfoot
-\bottomrule
-\endlastfoot
 Full Workspace & 3.89 & 79,407 & 206.5 & 0.555 & 0.118 \\
 Codex & 6.49 & 283,913 & 104.2 & 0.685 & 0.033 \\
 Without CodeGraph & 3.81 & 75,562 & 182.4 & 0.519 & 0.071 \\
 Without adaptive controller & 3.24 & 45,913 & 146.8 & 0.608 & 0.073 \\
 Without either capability & 3.25 & 45,618 & 115.0 & 0.564 & 0.102 \\
-\end{longtable}
+\bottomrule
+\end{tabularx}
 \endgroup
-\end{landscape}
+\end{table}
 
 Codex uses approximately 3.6 times the flow tokens of Full Workspace but completes sooner on average. Provider-reported tokens and elapsed time therefore describe different operational costs and should not be treated as interchangeable measures. Disabling adaptive exploration reduces mean flow-token use by 33,494 with CodeGraph and 29,944 without it; the corresponding runtime reductions are 59.6 and 67.4 seconds. CodeGraph adds only 3,845 mean flow tokens when the controller is enabled and 295 when it is disabled, although it increases runtime by 24.1 and 31.8 seconds respectively. The controller is therefore the dominant source of native model-token cost, while both capabilities contribute to execution time.
 
