@@ -8,7 +8,7 @@ Bibliography processing uses Biber.
 Current manuscript state:
 
 - Chapters 1--9 contain the converted thesis manuscript.
-- The implemented intent-contract registry and required-evidence audit are included as appendices.
+- The implemented intent-contract registry is included as an appendix. The complete required-evidence audit is submitted separately as a companion file so that its 700 run-level judgements do not expand the main thesis PDF.
 - Author, examiner, and reviewer remain placeholders. Empty abstract,
   declaration, acknowledgements, and figure-list pages are omitted until they
   contain thesis content.
