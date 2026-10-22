@@ -12,7 +12,7 @@
   \markright{Case \theauditcase: #1}%
 }
 
-This separately submitted companion file reports all 700 run-level judgements. P means present, Partial means related source survives without all required anchors, and A means absent. \texttt{Final files} is the total number of distinct files returned by final selection. The \textbf{Required files} and \textbf{Oracle files} columns show how many files from the required-evidence reference and the broader implementation Oracle occur in that result. A directly recorded loss is supported by an explicit final-selection omission. An inferred boundary is the first stage at which a unit is unavailable after appearing in an earlier recorded stage; it does not identify the exact internal decision responsible.
+This separately submitted companion file reports all 700 run-level judgements. P means present, Partial means related source survives without all required anchors, and A means absent. \texttt{Final files} is the total number of distinct files returned by final selection. The \textbf{Required files} and \textbf{Oracle files} columns show how many files from the required-evidence reference and the broader implementation oracle occur in that result. A directly recorded loss is supported by an explicit final-selection omission. An inferred boundary is the first stage at which a snippet is unavailable after appearing in an earlier recorded stage; it does not identify the exact internal decision responsible.
 
 \renewcommand{\arraystretch}{1.05}
 \setlength{\tabcolsep}{1.25pt}
@@ -22,19 +22,19 @@ This separately submitted companion file reports all 700 run-level judgements. P
 
 SSR routes a textarea DOM value through renderDOMProps into a text VNode child; the pre-resolution path passes null through without string normalization.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: R, H.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: R, H.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-10803-1}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-10803-1}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -94,19 +94,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T174007Z} & P & Partial & No & 6 & 
 
 The standard declaration surface contains ArrayBuffer types but omits DataView and its constructor.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: D.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: D.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-2953-3}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-2953-3}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -165,19 +165,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T143228Z} & A & No & 7 & 0/1 & 0/1 
 
 Series.add dispatches through a generated flexible arithmetic wrapper into Series.\_binop, which calculates a common name but constructs and finalizes the result without using it.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-Oracle files: \textbf{1}. Required units: W, M, B.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-oracle files: \textbf{1}. Required snippets: W, M, B.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-10068-5}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-10068-5}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -238,19 +238,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T152024Z} & P & P & P & Yes & 6 & 3
 
 Prop-validation error construction eagerly formats the received Symbol using an expected primitive type, causing the diagnostic path itself to fail.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: V, F.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: V, F.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-10519-7}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-10519-7}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -310,19 +310,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T170920Z} & P & Partial & No & 5 & 
 
 The package exposes JavaScript client/server webpack-plugin entry points but provides no corresponding declaration entry points.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{3}. Implementation-Oracle files: \textbf{11}. Required units: P, C, S.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{3}. Implementation-oracle files: \textbf{11}. Required snippets: P, C, S.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-6301-9}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-6301-9}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -383,19 +383,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T181713Z} & P & P & A & No & 9 & 2/
 
 Watch/build paths count diagnostics and forward only a scalar error count to a formatter that can print no per-file breakdown.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{7}. Required units: C, W, B, R.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{7}. Required snippets: C, W, B, R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-45713-11}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-45713-11}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -457,19 +457,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T145024Z} & P & P & A & P & No & 5 
 
 DataFrame.to\_excel delegates through ExcelWriter's engine registry, whose pre-resolution implementations support openpyxl and xlwt but not xlsxwriter.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{3}. Required units: D, R, E, X.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{3}. Required snippets: D, R, E, X.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-4542-13}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-4542-13}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -531,19 +531,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T165201Z} & P & P & P & Partial & N
 
 Organize Imports collects only top-level import declarations even though the compiler can identify ambient modules, so imports nested in those modules never enter grouping and edit generation.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: O, A.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: O, A.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-10020-15}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-10020-15}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -603,19 +603,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T133926Z} & P & A & No & 5 & 1/2 & 
 
 Categorical groupby carries every category into grouping and later re-expands the Cartesian result space, even when only a small subset is observed.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-Oracle files: \textbf{6}. Required units: P, C, G, I, R.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-oracle files: \textbf{6}. Required snippets: P, C, G, I, R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-14942-17}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-14942-17}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -678,19 +678,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T153916Z} & A & A & A & P & P & No 
 
 Importing core pandas modules eagerly imports computation, plotting, and optional I/O dependencies before their features are used.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{5}. Implementation-Oracle files: \textbf{17}. Required units: F, O, C, P, I.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{5}. Implementation-oracle files: \textbf{17}. Required snippets: F, O, C, P, I.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-16764-19}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-16764-19}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -753,19 +753,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T155344Z} & A & A & A & P & A & No 
 
 Logical-or and conditional expressions reduce their alternatives directly through getUnionType, which can choose a less specific array type despite one alternative being assignable to the other.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: B, C.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: B, C.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-10041-21}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-10041-21}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -825,19 +825,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T135126Z} & P & A & No & 5 & 1/1 & 
 
 Configuration diagnostics are emitted only when the diagnostics array is non-empty, and Session separately gates the open-file event, so a config change that clears errors produces no event.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: P, S, O.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: P, S, O.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-10473-23}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-10473-23}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -898,19 +898,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T140031Z} & P & Partial & P & No & 
 
 The old refactor API exposes applicable refactor names and then requests a whole refactor's code actions, without a distinct selected-action edit request and rename metadata contract.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{6}. Implementation-Oracle files: \textbf{8}. Required units: T, P, L, Q, S, C.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{6}. Implementation-oracle files: \textbf{8}. Required snippets: T, P, L, Q, S, C.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-16278-25}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-16278-25}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -974,19 +974,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T140840Z} & Partial & P & A & P & P
 
 The change updates stale LSHost terminology in comments without altering runtime behavior.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: M, P.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: M, P.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-19074-27}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-19074-27}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1046,19 +1046,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T141439Z} & P & P & Yes & 7 & 2/2 &
 
 Three watch-builder factory overloads require rootNames and options even though the CreateProgram callback contract can supply undefined values.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: B.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: B.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-24625-29}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-24625-29}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1117,19 +1117,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T142250Z} & Partial & No & 6 & 1/1 
 
 Incremental builder state keys dependency, signature, affected-file, and emit maps by sourceFile.path even though project-reference aliases require the canonical resolvedPath identity.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{4}. Required units: I, U, A, E.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{4}. Required snippets: I, U, A, E.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-35468-31}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-35468-31}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1191,19 +1191,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T144021Z} & Partial & Partial & Par
 
 NodeNext package resolution keeps ESM-mode extension rules active while resolving the main field of a CommonJS package, so an extensionless main target is rejected.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: R.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-46770-33}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-46770-33}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1262,19 +1262,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T150102Z} & P & Yes & 7 & 1/1 & 1/1
 
 Node-module resolution performs file probes for URI-like specifiers and package-root candidates before directory/package handling, producing avoidable filesystem stat calls.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{3}. Required units: N, L.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{3}. Required snippets: N, L.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:microsoft-typescript-52695-35}\\
+\caption{Required source snippets}\label{tab:microsoft-typescript-52695-35}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1334,19 +1334,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T151121Z} & A & P & No & 4 & 1/1 & 
 
 The value\_counts wrapper delegates to algorithms.value\_counts, which converts away the input object's name and constructs the count Series unnamed; index reconstruction then incorrectly applies the original name to the result index.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: A, B.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: A, B.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-10150-37}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-10150-37}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1406,19 +1406,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T152831Z} & P & P & Yes & 4 & 2/2 &
 
 Pytest cannot collect the ujson test groups because their class names do not begin with Test.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: U, N, P.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: U, N, P.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-16499-39}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-16499-39}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1479,19 +1479,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T154527Z} & P & P & P & Yes & 2 & 1
 
 Index comparison deliberately records and suppresses NumPy's invalid-elementwise-comparison FutureWarning before returning the comparison result.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: C.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: C.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-22698-41}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-22698-41}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1550,19 +1550,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T160157Z} & A & No & 3 & 0/1 & 0/1 
 
 Both repository lint configurations explicitly ignore E722, permitting bare except clauses in the test suite.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: S, P.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: S, P.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-22872-43}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-22872-43}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1622,19 +1622,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T160958Z} & A & A & No & 8 & 0/2 & 
 
 Concat reindexing treats an all-missing extension block like a NumPy block and replaces it with an array of the common empty dtype, losing the nullable Int64 extension dtype during merge.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: J.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: J.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-25183-45}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-25183-45}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1693,19 +1693,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T161908Z} & A & No & 7 & 1/1 & 1/1 
 
 DataFrame construction converts each nested value with np.asarray, then rejects non-two-dimensional results with a generic error that omits the observed shape.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: C.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: C.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-32289-47}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-32289-47}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1764,19 +1764,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T162810Z} & P & Yes & 4 & 1/1 & 1/1
 
 The repository pins Black 19.10b0; updating the formatter changes accepted trailing-comma formatting across many otherwise unrelated files.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{13}. Required units: B.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{13}. Required snippets: B.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-35925-49}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-35925-49}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1835,19 +1835,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T163327Z} & P & Yes & 8 & 1/1 & 3/1
 
 The rst-backticks hook excludes a named set of documentation files, leaving their single-backtick markup outside automated enforcement.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: R.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:pandas-dev-pandas-36617-51}\\
+\caption{Required source snippets}\label{tab:pandas-dev-pandas-36617-51}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1906,19 +1906,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T164307Z} & P & Yes & 15 & 1/1 & 1/
 
 DOM listeners are reconciled on create/update only; destroying a deactivated component has no hook that reuses the old element to remove stale v-model listeners.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: E.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: E.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-10004-53}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-10004-53}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -1977,19 +1977,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T170109Z} & P & Yes & 14 & 1/1 & 1/
 
 The SSR webpack plugins assume webpack 4's emit hook, string entry assets, space-suffixed module hashes, and the legacy libraryTarget shape.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-Oracle files: \textbf{3}. Required units: U, C, S.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{3}. Implementation-oracle files: \textbf{3}. Required snippets: U, C, S.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-11718-55}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-11718-55}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2050,19 +2050,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T174620Z} & Partial & A & Partial &
 
 The test toolchain pins an http-server version whose command behavior is incompatible with the Windows test workflow.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: H.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: H.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-11782-57}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-11782-57}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2121,19 +2121,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T175245Z} & A & No & 7 & 1/1 & 1/1 
 
 The compiler-sfc package has no explicit optional Prettier dependency range, leaving compatibility to an undeclared host installation.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: P.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: P.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-13052-59}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-13052-59}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2192,19 +2192,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T175755Z} & A & No & 1 & 0/1 & 0/1 
 
 Vue.set recognizes only numeric-typed array keys, so a numeric string bypasses splice-based reactive array assignment and follows object-property handling.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: S.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: S.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-5884-61}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-5884-61}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2263,19 +2263,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T180353Z} & P & Yes & 8 & 1/1 & 1/1
 
 Inject options normalize only array syntax into plain provider-name strings, and runtime resolution treats every normalized entry as a required provider key with no default path.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-Oracle files: \textbf{2}. Required units: N, R.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{2}. Implementation-oracle files: \textbf{2}. Required snippets: N, R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-6097-63}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-6097-63}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2335,19 +2335,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T181006Z} & P & P & Yes & 7 & 2/2 &
 
 The requested change rewrites explanatory comments for shared utility functions without changing their implementations.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: U.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: U.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-8528-65}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-8528-65}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2406,19 +2406,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T182239Z} & Partial & No & 1 & 1/1 
 
 On IE, assigning any placeholder to an input or textarea installs a one-shot input-event blocker; an empty textarea placeholder therefore consumes the first real user input event.
 
-Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: A.
+Connected required evidence: \textbf{no}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: A.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-9042-67}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-9042-67}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
@@ -2477,19 +2477,19 @@ Codex & 4 · \texttt{run-20260902\allowbreak T183138Z} & P & Yes & 11 & 1/1 & 1/
 
 KeepAlive stores the rendered VNode in its cache immediately, while transition patching can still replace its component instance; later pruning destroys the stale cached instance and leaves the live instance retained.
 
-Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-Oracle files: \textbf{1}. Required units: P, L, R.
+Connected required evidence: \textbf{yes}. Required-evidence files: \textbf{1}. Implementation-oracle files: \textbf{1}. Required snippets: P, L, R.
 
 \begingroup
 \small
 \begin{longtable}{@{}L{0.05\linewidth}L{0.43\linewidth}L{0.44\linewidth}@{}}
-\caption{Required source units}\label{tab:vuejs-vue-9842-69}\\
+\caption{Required source snippets}\label{tab:vuejs-vue-9842-69}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endfirsthead
 \multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
 \toprule
-\textbf{Unit} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
+\textbf{Snippet} & \textbf{Exact pre-resolution source} & \textbf{Required responsibility} \\
 \midrule
 \endhead
 \midrule
