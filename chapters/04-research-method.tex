@@ -8,7 +8,7 @@ We use the development partition to iteratively diagnose retrieval failures. For
 
 \section{CodeRepoQA Corpus and Testcase Construction}\label{sec:coderepoqa-corpus-and-testcase-construction}
 
-We draw the initial issue candidates from the TypeScript, pandas, and Vue collections released with CodeRepoQA (\textcite{Hu2025CodeRepoQA}). CodeRepoQA uses multi-turn conversations from GitHub issues to evaluate questions that require repository-wide understanding. This study does not adopt its dialogue-answering protocol directly. Instead, we construct the issue categories, selection rules, pre-resolution snapshots, evaluator oracles, and development and held-out partitions specifically for this retrieval evaluation.
+We draw the initial issue candidates from the TypeScript, pandas, and Vue collections released with CodeRepoQA \textcite{Hu2025CodeRepoQA}. CodeRepoQA uses multi-turn conversations from GitHub issues to evaluate questions that require repository-wide understanding. This study does not adopt its dialogue-answering protocol directly. Instead, we construct the issue categories, selection rules, pre-resolution snapshots, evaluator oracles, and development and held-out partitions specifically for this retrieval evaluation.
 
 The corpus contains 35 retrieval testcases: 11 from TypeScript, 12 from pandas, and 12 from Vue. It contains five testcases in each of seven categories: bug and regression, feature enhancement, performance and memory, compatibility and versioning, API behaviour and design, testing and build tooling, and maintenance and refactoring.
 
