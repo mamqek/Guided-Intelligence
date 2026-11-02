@@ -1,0 +1,21 @@
+\definecolor{processfill}{HTML}{EAF2FA}
+\definecolor{processline}{HTML}{355A7A}
+\definecolor{datafill}{HTML}{F4F5F6}
+\definecolor{dataline}{HTML}{737C84}
+\tikzset{
+  every node/.style={font=\sffamily\fontsize{9}{11}\selectfont,align=center,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+  process/.style={draw=processline,fill=processfill,rounded corners=2mm,
+    line width=.65pt,text width=5cm,minimum height=11mm,inner sep=2mm},
+  data/.style={draw=dataline,fill=datafill,line width=.65pt,
+    text width=5cm,minimum height=10mm,inner sep=2mm},
+  decision/.style={diamond,aspect=2.4,draw=processline,fill=white,
+    line width=.65pt,text width=26mm,inner sep=1mm},
+  flow/.style={-{Stealth[length=2mm]},draw=processline,line width=.7pt},
+  available/.style={flow,dashed},
+  llm badge/.style={draw=processline,fill=white,rounded corners=.7mm,
+    line width=.5pt,font=\sffamily\bfseries\fontsize{6.5}{7.5}\selectfont,
+    anchor=south east,inner xsep=1mm,inner ysep=.45mm},
+  route label/.style={font=\sffamily\fontsize{8}{9.5}\selectfont,
+    fill=white,inner sep=1mm,text=black}
+}

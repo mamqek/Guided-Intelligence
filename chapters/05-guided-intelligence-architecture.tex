@@ -10,6 +10,18 @@ Guided Intelligence supports two repository-retrieval modes: the native Workspac
 
 The retrieval result contains ranked evidence, coverage and sufficiency assessments, and a record of the retrieval process. For an allowed request, the selected evidence and validated intent flow guide response generation and the production of understanding checks. Submitted answers can then enter a separate evaluation and follow-up path tied to the original run. Structured logging spans the complete lifecycle; its evidence identities, decisions, budgets, and failures are described in the final subsection.
 
+The overall pipeline diagram shows these stages and the two repository-retrieval modes. Rounded boxes represent processing stages, plain boxes represent inputs or results, and corner badges identify LLM involvement. The detailed Workspace diagram below expands the native retrieval path.
+
+\begin{figure}[p]
+\centering
+\begingroup
+\input{figures/pipeline-styles.tex}
+\resizebox{\linewidth}{!}{\input{figures/overall-pipeline.tex}}
+\endgroup
+\caption{Overall Guided Intelligence pipeline}\label{fig:overall-pipeline}
+\end{figure}
+\FloatBarrier
+
 \section{Intent Classification, Retrieval Context, and Source Policy}\label{sec:intent-classification-retrieval-context-and-source-policy}
 
 Intent classification maps each request onto one or more categories that approximate the requested outcome and provide a consistent structure for retrieval and response generation. Drawing on empirical findings about developers' information needs \textcite{Ko2007InformationNeeds}, Guided Intelligence organises repository-assistance requests into a taxonomy of eight task intents. The taxonomy focuses on the outcomes requested from the assistant, rather than reproducing the study's broader classification of information needs.
@@ -241,6 +253,70 @@ Scheduling is deterministic. Actions in the ordinary pool compete for a shared p
 Every new or refined observation passes through the same disclosure and qualification boundary used at round zero. Only retained decisions enter the candidate pool; navigation leads may guide later actions without becoming direct factual support. The controller then updates owner representations, exact leads, obligation coverage, structural components, and evidence islands. Cross-file expansions can also produce traces linking their source, endpoint, relationship direction, and affected obligations. These traces remain inputs to final evidence selection rather than establishing a handoff by themselves.
 
 Otherwise, iteration ends when no executable action remains or a round produces no evidence, navigation, coverage, or pending-lead gain. The configured exploration budget normally permits three rounds, with a fourth available only for a productive exact-anchor follow-up or an unspent verified lead. We use three rounds as the normal limit to balance evidence recovery with the cost of further exploration. Development trials show that additional rounds can introduce unrelated candidates without consistently improving the evidence set. A conditional fourth round allows promising leads to be followed without extending every run. The controller returns its qualified candidates, coverage, islands, relationships, file traces, round count, and stop reason. Final evidence selection compares this bounded pool across obligations and records which candidates are accepted, rejected, or left unresolved before producing the downstream evidence list.
+
+The example follows the branch from admission to deferred observations. A controller recovery action returns the preserved material through qualification before it enters final evidence selection. Rounded boxes represent processing stages, plain boxes represent stored material or results, and the diamond represents a decision. Dashed arrows indicate possible use rather than guaranteed scheduling. Corner badges identify LLM involvement.
+
+\begin{figure}[p]
+\centering
+\begingroup
+\input{figures/pipeline-styles.tex}
+\resizebox{\linewidth}{!}{\input{figures/workspace-retrieval.tex}}
+\endgroup
+\caption{Workspace retrieval and the recovery path}\label{fig:workspace-retrieval}
+\end{figure}
+\FloatBarrier
+
+\section{Worked Example of Evidence Recovery}\label{sec:worked-example-of-evidence-recovery}
+
+A TypeScript issue reports that the compiler does not show an expected error after a code change. The retrieval request therefore concerns how changes propagate through compilation and how checking results are updated. This example follows one relevant snippet through initial search, deferred admission, controller recovery, and final selection.
+
+The snippet is taken from \texttt{src/compiler/builder.ts}. The following selected lines contain terms relevant to that information need. Ellipses mark omitted code; the complete retrieved snippet and its function name appear in \hyperref[ch:worked-example-of-evidence-recovery]{Appendix~\ref*{ch:worked-example-of-evidence-recovery}}.
+
+\begin{minted}[linenos=false,fontsize=\footnotesize]{typescript}
+const cachedDiagnostics = state.semanticDiagnosticsPerFile.get(path);
+// ...
+if (cachedDiagnostics) {
+    return cachedDiagnostics;
+}
+// ...
+const diagnostics = Debug.assertDefined(state.program)
+    .getBindAndCheckDiagnostics(sourceFile, cancellationToken);
+// ...
+state.semanticDiagnosticsPerFile.set(path, diagnostics);
+\end{minted}
+
+\emph{Excerpt from lines 664--680 in the pre-resolution snapshot. Line wrapping is adjusted for presentation.}
+
+The snippet concerns cached checking results. Initial search matches terms including ``cache,'' ``cached,'' ``state,'' and ``diagnostic.'' These matches make it a retrieval candidate; its later qualification determines what it can contribute as evidence.
+
+\begingroup
+\small
+\begin{longtable}{@{}L{0.26\linewidth}L{0.68\linewidth}@{}}
+\caption{Worked example of evidence recovery}\label{tab:worked-example-of-evidence-recovery-3}\\
+\toprule
+\textbf{Pipeline stage} & \textbf{What happens to the snippet} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{c}{\tablename\ \thetable\ -- continued}\\
+\toprule
+\textbf{Pipeline stage} & \textbf{What happens to the snippet} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Initial repository search & Search retrieves a range containing the function through queries concerning state changes and the explanation of the reported behaviour. \\
+Prepare canonical snippets & Structural resolution identifies the complete function at lines 664--680. Canonicalisation gives it a stable observation identity. \\
+Admission to owner comparison & The snippet ranks 77th. Admission stops after the preceding snippet takes the request beyond its preferred character target, so this observation remains deferred. \\
+Construct, schedule and execute bounded actions & In round 1, a deferred-file rescue uses the preserved observation to search its file. The action returns the same snippet for inspection. \\
+Disclose source and qualify & Qualification retains the snippet as direct evidence about diagnostic-cache behaviour, while identifying further information still needed. \\
+Final evidence selection & The complete snippet remains in the selected evidence. Its text matches the pre-resolution source. \\
+\end{longtable}
+\endgroup
+
+The initial omission occurs at the input boundary: search finds the snippet, but owner comparison does not receive it. Preserving the observation allows the controller to revisit it without treating its earlier omission as rejection. The trace then connects its recovery, qualification, and final acceptance. \hyperref[ch:worked-example-of-evidence-recovery]{Appendix~\ref*{ch:worked-example-of-evidence-recovery}} provides the detailed records for this example.
 
 \section{Learning-Oriented Interaction}\label{sec:learning-oriented-interaction}
 

@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+\node[data] (user) at (0,0) {User question and selected sources};
+\node[process] (intent) at (0,-1.8) {\textbf{Intent classification}\\
+  Requested outcome, stages and evidence obligations};
+\node[process] (policy) at (0,-3.6) {\textbf{Source policy}\\
+  Check request and permitted sources};
+\node[process] (connected) at (0,-5.6) {\textbf{Query permitted connected sources}\\
+  Collect relevant material and repository search hints};
+\node[process,text width=48mm] (workspace) at (-3.5,-8) {\textbf{Workspace retrieval}\\
+  Application-controlled pipeline};
+\node[process,text width=48mm] (codex) at (3.5,-8) {\textbf{Codex retrieval}\\
+  Agent-directed repository inspection};
+\node[data] (result) at (0,-10.4) {\textbf{Retrieval result}\\
+  Selected evidence, coverage and retrieval records};
+\node[process] (response) at (0,-12.5) {\textbf{Response generation}\\
+  Explanation and understanding checks};
+\node[process] (followup) at (0,-14.6) {\textbf{Optional follow-up interaction}\\
+  Evaluate answers and provide guidance};
+\foreach \stage in {intent,response}
+  \node[llm badge] at ([xshift=-1.5mm,yshift=-.5mm]\stage.north east) {LLM};
+\draw[flow] (user) -- (intent);
+\draw[flow] (intent) -- (policy);
+\draw[flow] (policy) -- node[route label,right]{Allowed request} (connected);
+\draw[flow] (connected.south) -- (0,-7.0) --
+  node[route label,above=2pt]{Workspace mode} (-3.5,-7.0) -- (workspace.north);
+\draw[flow] (connected.south) -- (0,-7.0) --
+  node[route label,above=2pt]{Codex mode} (3.5,-7.0) -- (codex.north);
+\draw[flow] (workspace.south) |- (0,-9.5) -- (result.north);
+\draw[flow] (codex.south) |- (0,-9.5) -- (result.north);
+\draw[flow] (result) -- (response);
+\draw[flow] (response) -- (followup);
+\end{tikzpicture}

@@ -1,0 +1,66 @@
+\begin{tikzpicture}
+\node[process] (context) at (0,0) {\textbf{Assemble retrieval context}\\
+  Request analysis and already retrieved connected-source results};
+\node[process] (anchors) at (0,-1.7) {\textbf{Ground exact anchors}\\Check paths and symbols};
+\node[process] (search) at (0,-3.3) {\textbf{Initial repository search}\\
+  Qdrant lexical and semantic retrieval};
+\node[process] (canonical) at (0,-5.0) {\textbf{Prepare canonical snippets}\\
+  Deduplicate ranges, resolve owners and validate against source};
+\node[process] (admission) at (0,-7.0) {\textbf{Admission to owner comparison}\\
+  Rank snippets and build the request within its character limit};
+\node[process] (comparison) at (0,-9.1) {\textbf{Owner comparison}\\
+  Choose owners for initial inspection};
+\node[data,text width=37mm] (deferred) at (7.2,-7.0) {\textbf{Deferred observations}\\
+  Retrieved snippets omitted because the ranked request reaches its character limit};
+\node[data,text width=37mm] (dormant) at (7.2,-9.4) {\textbf{Dormant owners}\\
+  Owners considered by the LLM but not selected for initial inspection};
+\node[process] (qualify) at (0,-11.1) {\textbf{Disclose source and qualify}\\
+  Direct support, navigation lead or rejection};
+\node[process] (coverage) at (0,-13.0) {\textbf{Assess obligation coverage}\\
+  Identify supported and missing claims};
+\node[decision] (continue) at (0,-14.9) {Continue\\exploration?};
+\node[process] (actions) at (0,-17.9) {\textbf{Construct, schedule and execute bounded actions}\\
+  Search, structural navigation and recovery};
+\node[process,text width=37mm] (recover) at (7.2,-17.9) {\textbf{Inspect preserved material}\\
+  Only when eligible for a bounded recovery action};
+\node[process] (final) at (0,-20.7) {\textbf{Final evidence selection}\\
+  Compare qualified candidates across obligations};
+\node[data] (evidence) at (0,-22.5) {Selected evidence and stated limitations};
+\foreach \stage in {comparison,qualify,coverage,final}
+  \node[llm badge] at ([xshift=-1.5mm,yshift=-.5mm]\stage.north east) {LLM};
+\draw[flow] (context) -- (anchors);
+\draw[flow] (anchors) -- (search);
+\draw[flow] (anchors.west) -- (-3.4,-1.7) --
+  node[route label,text width=15mm,left]{Exact source leads}
+  (-3.4,-5.0) -- (canonical.west);
+\draw[flow] (search) -- (canonical);
+\draw[flow] (canonical) -- (admission);
+\draw[flow] (admission) -- node[route label,text width=37mm]{Snippets admitted within the limit} (comparison);
+\draw[flow] (admission) -- node[route label,text width=19mm,above=2pt]{Remaining snippets do not fit} (deferred);
+\draw[flow] (comparison.east) -- (4.3,-9.1) |- (dormant.west);
+\node[route label,text width=18mm,anchor=south,yshift=2pt] at (3.95,-9.1) {Unselected owners};
+\draw[flow] (comparison) -- node[route label]{Selected owners} (qualify);
+\draw[flow] (qualify) -- (coverage);
+\draw[flow] (coverage) -- (continue);
+\draw[flow] (continue) -- (actions);
+\node[route label,fill=none,anchor=west,inner sep=.5pt] at (.3,-16.0) {\textbf{Yes}};
+\node[route label,text width=46mm] at (0,-16.7) {Unresolved claims and an executable action within budget};
+% Availability does not imply that a recovery action is always scheduled.
+\draw[available] (deferred.east) -- (9.75,-7.0) |- (recover.east);
+\draw[available] (dormant.south) --
+  node[route label,text width=28mm]{Preserved for possible recovery} (recover.north);
+\draw[flow] (actions) -- node[route label,text width=16mm,above=2pt]{Recovery action} (recover);
+\draw[flow] (recover.west) -- (3.0,-17.9) -- (3.0,-11.1) -- (qualify.east);
+% Qualified navigation leads may inform actions without becoming direct proof.
+\draw[available] (qualify.west) -- (-6.2,-11.1) --
+  node[route label,text width=21mm]{Retained navigation leads may guide actions}
+  (-6.2,-17.9) -- (actions.west);
+\draw[flow] (actions.west) -- (-4.25,-17.9) --
+  node[route label,text width=18mm]{New or refined snippets}
+  (-4.25,-11.65) -- ([yshift=-5.5mm]qualify.west);
+\draw[flow] (continue.west) -- node[route label,above=2pt]{\textbf{No}} (-3.15,-14.9) --
+  (-3.15,-20.7) -- (final.west);
+\node[route label,text width=47mm,anchor=west] at (-3.05,-19.4)
+  {Coverage complete or a stopping condition reached};
+\draw[flow] (final) -- (evidence);
+\end{tikzpicture}

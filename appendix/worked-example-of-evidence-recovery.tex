@@ -1,0 +1,147 @@
+\chapter{Worked Example of Evidence Recovery}\label{ch:worked-example-of-evidence-recovery}
+
+This appendix expands the Chapter 5 example by following one source observation through Workspace retrieval. The execution is selected because it exposes a clear admission boundary, an explicit recovery action, and a final snippet that can be checked directly against the repository snapshot. It illustrates how the system handles evidence rather than measuring how frequently recovery succeeds.
+
+\section{Execution and Source}\label{sec:execution-and-source}
+
+\begingroup
+\small
+\begin{longtable}{@{}L{0.19\linewidth}L{0.75\linewidth}@{}}
+\caption{Execution and Source}\label{tab:execution-and-source-1}\\
+\toprule
+\textbf{Item} & \textbf{Recorded value} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{c}{\tablename\ \thetable\ -- continued}\\
+\toprule
+\textbf{Item} & \textbf{Recorded value} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Testcase & TypeScript 35468 \\
+Request context & Investigate why a code change does not produce the expected compiler error under watch mode with project references and wildcard re-exports. \\
+Configuration & Full Workspace \\
+Repetition & 4 \\
+Run ID & \texttt{run-20260916T034916Z} \\
+Pre-resolution commit & \texttt{f7860b04\allowbreak{}8037bd74\allowbreak{}021ec055\allowbreak{}7a62688e\allowbreak{}c57e33c1} \\
+Source & \texttt{src/compiler/builder.ts}, lines 664--680 \\
+Function & \texttt{get\allowbreak{}Binder\allowbreak{}And\allowbreak{}Checker\allowbreak{}Diagnostics\allowbreak{}Of\allowbreak{}File} \\
+Observation ID & \texttt{obs\_492dfe725960df80} \\
+\end{longtable}
+\endgroup
+
+\Needspace{25\baselineskip}
+\section{Complete Retrieved Snippet}\label{sec:complete-retrieved-snippet}
+
+The source below makes the retrieval record inspectable. Understanding every compiler-specific detail is unnecessary for following the evidence lifecycle.
+
+\begin{minted}[linenos=false,fontsize=\footnotesize]{typescript}
+function getBinderAndCheckerDiagnosticsOfFile(state: BuilderProgramState, sourceFile: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[] {
+    const path = sourceFile.path;
+    if (state.semanticDiagnosticsPerFile) {
+        const cachedDiagnostics = state.semanticDiagnosticsPerFile.get(path);
+        // Report the bind and check diagnostics from the cache if we already have those diagnostics present
+        if (cachedDiagnostics) {
+            return cachedDiagnostics;
+        }
+    }
+
+    // Diagnostics werent cached, get them from program, and cache the result
+    const diagnostics = Debug.assertDefined(state.program).getBindAndCheckDiagnostics(sourceFile, cancellationToken);
+    if (state.semanticDiagnosticsPerFile) {
+        state.semanticDiagnosticsPerFile.set(path, diagnostics);
+    }
+    return diagnostics;
+}
+\end{minted}
+
+The source retains its original wording. Indentation is reduced for presentation; long lines wrap in the typeset listing.
+
+\section{Detailed Trace}\label{sec:detailed-trace}
+
+Event references identify line numbers in the run's \texttt{retrieval-trace.jsonl}.
+
+\begingroup
+\small
+\begin{longtable}{@{}L{0.19\linewidth}L{0.59\linewidth}L{0.13\linewidth}@{}}
+\caption{Detailed Trace}\label{tab:detailed-trace-2}\\
+\toprule
+\textbf{Stage} & \textbf{Recorded decision or result} & \textbf{Event reference} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{\tablename\ \thetable\ -- continued}\\
+\toprule
+\textbf{Stage} & \textbf{Recorded decision or result} & \textbf{Event reference} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Initial repository search & Range 660--681 appears in sparse results for two obligations, at channel ranks 7 and 6. It also appears in one hybrid result list at rank 8. Matched terms include ``cache,'' ``cached,'' ``program,'' ``state,'' ``affected,'' and ``diagnostic.'' & 35, 45 \\
+Prepare canonical snippets & CodeGraph resolves the range to the function at 664--680. Canonicalisation records it as observation \texttt{obs\_492dfe725960df80}. & 51--52 \\
+Admission to owner comparison & The pool contains 406 canonical snippets. Admission includes 76 snippets. The target occupies position 77 and receives \texttt{excluded\_\allowbreak{}after\_\allowbreak{}budget\_\allowbreak{}crossing}. & 54 \\
+Owner comparison and initial selection & The target is outside the comparison request and does not enter round-zero qualification. Another owner from the same file proceeds. & 59--60 \\
+Controller scheduling & Round 1 schedules action \texttt{action\_d923049e53dc1041} in the deferred-file-rescue pool, using the preserved observation as its seed. & 464 \\
+Controller execution & A search within \texttt{src/compiler/builder.ts} returns the target observation and two others. The action succeeds without a recorded materialisation loss. & 485 \\
+Source disclosure and qualification & The round-1 qualification request includes the target. Qualification promotes it as direct evidence for the state-change obligation and records a further retrieval need concerning cache invalidation. & 510, 513 \\
+Candidate-pool construction & The same structural candidate enters the pool supplied to final selection. & 1649 \\
+Final evidence selection & Selection accepts the function. The final artifact, \texttt{evidence-items.json}, contains its complete source at lines 664--680 as evidence item 7. This is a snippet position, not a file-ranking measure. & 1657--1658, 1670 \\
+\end{longtable}
+\endgroup
+
+The initial search positions and the later admission position describe different rankings. A snippet can appear relatively early in an individual query's results yet fall outside the globally assembled comparison request.
+
+\section{Why the Snippet Remains Deferred}\label{sec:why-the-snippet-remains-deferred}
+
+Admission operates against a preferred 60,000-character input target and a 100,000-character maximum. It includes the snippet that crosses the preferred target, then stops.
+
+\begingroup
+\small
+\begin{longtable}{@{}L{0.15\linewidth}L{0.38\linewidth}L{0.20\linewidth}L{0.13\linewidth}@{}}
+\caption{Why the Snippet Remains Deferred}\label{tab:why-the-snippet-remains-deferred-3}\\
+\toprule
+\textbf{Admission position} & \textbf{Snippet} & \textbf{Request size after admission} & \textbf{Outcome} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{c}{\tablename\ \thetable\ -- continued}\\
+\toprule
+\textbf{Admission position} & \textbf{Snippet} & \textbf{Request size after admission} & \textbf{Outcome} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+76 & \texttt{Reusable\allowbreak{}Builder\allowbreak{}Program\allowbreak{}State}, lines 21--60 in the same file & 61,002 characters & Admitted; crosses the preferred target \\
+77 & \texttt{get\allowbreak{}Binder\allowbreak{}And\allowbreak{}Checker\allowbreak{}Diagnostics\allowbreak{}Of\allowbreak{}File}, lines 664--680 & No further admission & Preserved as deferred \\
+\end{longtable}
+\endgroup
+
+These two snippets have identical principal ranking signals: neither has an exact-anchor match, both recur across two query views, and both have the same best grouped rank and score. Their earlier priority components and file path also match. Source position breaks the tie, placing the declaration at line 21 first.
+
+The record therefore supports a specific explanation: the target falls immediately after the admission boundary. It does not show that the preceding snippet is semantically better, that the target lacks relevant keywords, or that an LLM judges it irrelevant.
+
+\section{Why the Controller Revisits It}\label{sec:why-the-controller-revisits-it}
+
+The controller still has an unresolved information need concerning changes to checking state. Its recovery action searches for:
+
+\begin{quote}
+Which state-update function clears or repopulates semanticDiagnosticsPerFile and affected files after a shape change?
+\end{quote}
+
+This query uses the preserved observation to guide a bounded search within its file. The action returns the same observation, making it available for source disclosure and qualification.
+
+Recovery alone does not grant evidential support. Qualification subsequently retains the snippet as direct evidence about diagnostic-cache behaviour and records what remains missing. Final selection then accepts it within the evidence assembled for the request.
+
+\section{What the Trace Demonstrates}\label{sec:what-the-trace-demonstrates}
+
+The same observation can be followed from initial retrieval to deferred admission, controller recovery, qualification, and final selection. Its initial omission is reversible because the pipeline preserves it for possible later use. Its eventual acceptance is a separate decision supported by source inspection.
+
+The run remains partial and insufficient overall. This example demonstrates recovery of one useful snippet, not complete recovery of the testcase's required evidence or a complete diagnosis of the reported issue.

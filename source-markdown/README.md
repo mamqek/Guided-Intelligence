@@ -35,6 +35,7 @@ The student independently rewrites and verifies the final submitted prose. Worki
 - Use narrative Markdown citations (`@Key`) when the cited authors form part of the sentence. Convert all manuscript citations using biblatex `\textcite`, with author names supplied by the bibliography, and do not add a duplicate citation at the end of the same statement. Bracketed Markdown citations (`[@Key]`) also convert to `\textcite{Key}` without additional surrounding parentheses. Do not leave raw citation keys or switch to `\cite`, `\parencite`, or `\autocite` in generated prose.
 - In Chapter 1's evaluation-corpus introduction, convert the links on TypeScript, pandas, and Vue into URL footnotes immediately after each repository name. Use `TypeScript\footnote{\url{https://github.com/microsoft/TypeScript}}`, with equivalent footnotes for `https://github.com/pandas-dev/pandas` and `https://github.com/vuejs/vue`. Keep the repository names in the sentence and the full URLs at the foot of the page so they remain available in print. This is specific to these repository introductions, not a rule for all hyperlinks or academic citations. The exporter supports these footnotes; verify their placement in the compiled document.
 - Refresh an existing Overleaf checkout with `python thesis/tools/build_overleaf_project.py --output <checkout> --sync-existing`, first adding `--dry-run` to validate. This mode preserves the hand-typeset tables and template, rejects unexpected table-data changes, updates approved terminology, and keeps the complete required-evidence audit outside the main thesis. Do not replace a reviewed checkout with the fresh-project export.
+- The reviewed TikZ figures live in `thesis/figures`. Both diagrams belong to Chapter 5: diagram A introduces the overall pipeline, and diagram B immediately precedes the worked example. The exporter copies their reusable sources, scopes diagram styles locally, and converts fenced source code into minted listings without prose escaping.
 
 ## Planned chapter files
 
@@ -53,4 +54,5 @@ Chapter files are created when work on that chapter begins, avoiding empty place
 ## Appendix files
 
 - `appendix-implemented-intent-contract-registry.md`
+- `appendix-worked-example-of-evidence-recovery.md` (detailed Workspace diagram and one recorded evidence-recovery example)
 - `appendix-required-evidence-audit.md` (generated from the frozen required-evidence reference and final campaign artifacts)

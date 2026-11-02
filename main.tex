@@ -22,6 +22,8 @@
 
 \usepackage[svgnames]{xcolor}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,shapes.geometric,positioning,calc}
 \graphicspath{{./figures/}}
 \setkeys{Gin}{width=0.9\linewidth}
 \usepackage{subcaption}
@@ -71,6 +73,7 @@
 
 \tableofcontents{}
 \listoftables{}
+\listoffigures{}
 
 \mainmatter
 \import{chapters/}{01-introduction.tex}
@@ -85,6 +88,8 @@
 
 \appendix
 \import{appendix/}{implemented-intent-contract-registry.tex}
+
+\import{appendix/}{worked-example-of-evidence-recovery.tex}
 
 \backmatter
 \printbibliography{}
